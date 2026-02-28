@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XIIM Skills — Was dein Agent alles kann</title>
+    <meta name="description" content="Alle Skills und Features der XIIM Agent-Plattform im Detail." />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .skills-hero { padding: 4rem 0 2rem; text-align: center; }
+      .skills-hero h1 { font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: 0.5rem; }
+      .skills-hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+      .skill-section { padding: 2rem 0; }
+      .skill-section h2 { font-size: 1.4rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--stroke); color: var(--cyan); }
+      .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem; }
+      .skill-item { padding: 1.2rem; border-radius: var(--radius-sm); border: 1px solid var(--stroke); background: var(--bg-soft); transition: border-color 0.3s, transform 0.3s; }
+      .skill-item:hover { border-color: rgba(6,182,212,0.4); transform: translateY(-2px); }
+      .skill-item h3 { font-size: 1.05rem; margin: 0 0 0.4rem; }
+      .skill-item p { font-size: 0.9rem; color: var(--text-muted); margin: 0 0 0.6rem; line-height: 1.5; }
+      .skill-item .examples { font-size: 0.82rem; color: var(--text-muted); opacity: 0.7; }
+      .skill-item .examples strong { color: var(--text); opacity: 1; }
+      .plan-badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 99px; font-size: 0.72rem; font-weight: 600; margin-left: 0.5rem; }
+      .badge-starter { background: rgba(34,197,94,0.15); color: #22c55e; }
+      .badge-pro { background: rgba(6,182,212,0.15); color: var(--cyan); }
+      .badge-business { background: rgba(168,85,247,0.15); color: #a855f7; }
+      .back-link { display: inline-block; margin: 2rem 0; color: var(--cyan); text-decoration: none; font-weight: 600; }
+      .back-link:hover { text-decoration: underline; }
+      @media (max-width: 480px) {
+        .skill-grid { grid-template-columns: 1fr; }
+        .skills-hero h1 { font-size: 1.5rem; }
+        .skill-item { padding: 0.9rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="/" class="back-link">← Zurück zur Startseite</a>
+
+      <div class="skills-hero">
+        <h1>Was dein XIIM Agent alles kann</h1>
+        <p>Jeder Skill ist ein echtes Feature — kein Marketing. Hier siehst du genau, was in welchem Plan steckt.</p>
+      </div>
+
+      <div class="skill-section">
+        <h2>💬 Kommunikation & Messaging</h2>
+        <div class="skill-grid">
+          <div class="skill-item">
+            <h3>📱 WhatsApp-Agent <span class="plan-badge badge-starter">Starter</span></h3>
+            <p>Dein Agent antwortet direkt per WhatsApp — 24/7, in deinem Stil. Wie ein zweites Ich auf deinem Telefon.</p>
+            <div class="examples"><strong>Beispiel:</strong> Du schreibst "Was steht heute an?" → Agent checkt Kalender, E-Mails und antwortet mit einer Übersicht.</div>
+          </div>
+          <div class="skill-item">
+            <h3>✈️ Telegram Bot <span class="plan-badge badge-starter">Starter</span></h3>
+            <p>Eigener Telegram Bot nur für dich. Sofort einsatzbereit, mit Inline-Buttons und Datei-Support.</p>
+            <div class="examples"><strong>Beispiel:</strong> Schick eine PDF → Agent fasst sie zusammen und schickt die Kernpunkte zurück.</div>
+          </div>
+          <div class="skill-item">
+            <h3>📧 E-Mail Komplettverwaltung <span class="plan-badge badge-pro">Pro</span></h3>
+            <p>Mehrere Postfächer (GMX, Gmail, Outlook...) lesen, sortieren, beantworten. Spam raus, Wichtiges rein.</p>
+            <div class="examples"><strong>Beispiel:</strong> "Zeig mir alle ungelesenen Mails von heute" → Agent listet 3 wichtige, ignoriert 15 Newsletter.</div>
+          </div>
+          <div class="skill-item">
+            <h3>🗣️ Sprachnachrichten <span class="plan-badge badge-business">Business</span></h3>
+            <p>Agent versteht Sprachnachrichten und antwortet auf Wunsch per Voice — mit einer natürlichen KI-Stimme.</p>
+            <div class="examples"><strong>Beispiel:</strong> Du schickst eine 2-Min Sprachnachricht → Agent transkribiert, versteht und antwortet per Text oder Voice.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-section">
+        <h2>📅 Produktivität & Organisation</h2>
+        <div class="skill-grid">
+          <div class="skill-item">
+            <h3>📅 Google Kalender <span class="plan-badge badge-pro">Pro</span></h3>
+            <p>Termine erstellen, verschieben, löschen, erinnern. Dein Agent managed deinen Kalender komplett.</p>
+            <div class="examples"><strong>Beispiel:</strong> "Mach morgen 14 Uhr einen Termin mit Lisa" → Agent erstellt den Termin und erinnert dich 30 Min vorher.</div>
+          </div>
+          <div class="skill-item">
+            <h3>✅ Erinnerungen & Aufgaben <span class="plan-badge badge-starter">Starter</span></h3>
+            <p>To-Dos erstellen, tracken, erinnern. Dein Agent vergisst nichts und erinnert dich proaktiv.</p>
+            <div class="examples"><strong>Beispiel:</strong> "Erinnere mich morgen um 9 an den Arzttermin" → Agent meldet sich pünktlich.</div>
+          </div>
+          <div class="skill-item">
+            <h3>📝 Notizen <span class="plan-badge badge-starter">Starter</span></h3>
+            <p>Notizen erstellen, durchsuchen, organisieren. Alles Markdown-basiert, durchsuchbar.</p>
+            <div class="examples"><strong>Beispiel:</strong> "Merk dir: WiFi-Passwort im Hotel ist ABC123" → Agent speichert es, du fragst Wochen später danach.</div>
+          </div>
+          <div class="skill-item">
+            <h3>🧠 Persönliches Gedächtnis <span class="plan-badge badge-starter">Starter</span></h3>
+            <p>Dein Agent merkt sich alles über dich — Vorlieben, Kontakte, vergangene Gespräche. Wird jeden Tag besser.</p>
+            <div class="examples"><strong>Beispiel:</strong> Du sagst einmal "Ich trinke keinen Kaffee" → Agent empfiehlt nie wieder Kaffee-Rezepte.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-section">
+        <h2>📄 Dokumente & Dateien</h2>
+        <div class="skill-grid">
+          <div class="skill-item">
+            <h3>📊 Excel erstellen <span class="plan-badge badge-pro">Pro</span></h3>
+            <p>Kalkulationssheets, Budgetpläne, Datenanalysen — dein Agent baut dir die Tabelle, die du brauchst.</p>
+            <div class="examples"><strong>Beispiel:</strong> "Erstell mir eine Kalkulation für 3 Mitarbeiter mit Gehalt, Steuern und Gesamtkosten" → Fertige .xlsx Datei.</div>
+          </div>
+          <div class="skill-item">
+            <h3>📑 PDF erstellen & bearbeiten <span class="plan-badge badge-pro">Pro</span></h3>
+            <p>Angebote, Berichte, Verträge — professionelle PDFs auf Zuruf. Auch bestehende PDFs bearbeiten.</p>
+            <div class="examples"><strong>Beispiel:</strong> "Erstell ein Angebot für Firma XY, 3 Positionen, Gesamtsumme 5.400€" → Formatiertes PDF.</div>
+          </div>
+          <div class="skill-item">
+            <h3>📝 Word-Dokumente <span class="plan-badge badge-pro">Pro</span></h3>
+            <p>Briefe, Proposals, Dokumentationen — formatiert, strukturiert, versandfertig als .docx.</p>
+            <div class="examples"><strong>Beispiel:</strong> "Schreib einen formellen Brief an die Hausverwaltung wegen der Heizung" → Fertiges Word-Dokument.</div>
+          </div>
+          <div class="skill-item">
+            <h3>📈 CSV-Datenanalyse <span class="plan-badge badge-pro">Pro</span></h3>
+            <p>CSV-Dateien analysieren, filtern, aggregieren. Reports und Zusammenfassungen aus Rohdaten.</p>
+            <div class="examples"><strong>Beispiel:</strong> Schick eine Verkaufs-CSV → Agent: "Top-Produkt: Widget X, +23% vs. Vormonat, Umsatz: €47.200"</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-section">
+        <h2>🔍 Recherche & Monitoring</h2>
+        <div class="skill-grid">
+          <div class="skill-item">
+            <h3>🔍 Web-Recherche <span class="plan-badge badge-starter">Starter</span></h3>
+            <p>Echtzeitsuche im Internet mit Zusammenfassungen. Fakten, Preisvergleiche, Analysen.</p>
+            <div class="examples"><strong>Beispiel:</strong> "Was kostet ein MacBook Pro M5 gerade?" → Agent durchsucht 5 Shops und vergleicht Preise.</div>
+          </div>
+          <div class="skill-item">
+            <h3>☁️ Wetter <span class="plan-badge badge-starter">Starter</span></h3>
+            <p>Aktuelle Wetterdaten und Vorhersagen. Proaktiv: Agent warnt vor Regen wenn du rausgehst.</p>
+            <div class="examples"><strong>Beispiel:</strong> Morgen-Briefing: "☀️ 22°C heute, aber ab 16 Uhr Regen. Schirm mitnehmen!"</div>
+          </div>
+          <div class="skill-item">
+            <h3>🔴 Reddit Monitoring <span class="plan-badge badge-pro">Pro</span></h3>
+            <p>Subreddits beobachten, Trends erkennen, Top-Posts zusammenfassen. Tägliche Briefings.</p>
+            <div class="examples"><strong>Beispiel:</strong> Agent checkt r/MachineLearning und r/startups → "3 relevante Posts heute: [Zusammenfassung]"</div>
+          </div>
+          <div class="skill-item">
+            <h3>🐦 Twitter/X Monitoring <span class="plan-badge badge-pro">Pro</span></h3>
+            <p>Accounts und Hashtags verfolgen, Sentiment analysieren, Breaking News erkennen.</p>
+            <div class="examples"><strong>Beispiel:</strong> "Was sagt Twitter über das neue iPhone?" → Zusammenfassung der Top-Tweets + Stimmungsanalyse.</div>
+          </div>
+          <div class="skill-item">
+            <h3>📡 Blog & RSS Monitoring <span class="plan-badge badge-pro">Pro</span></h3>
+            <p>Lieblings-Blogs und News-Feeds überwachen. Neue Artikel zusammengefasst in dein Briefing.</p>
+            <div class="examples"><strong>Beispiel:</strong> "Überwache den OpenAI Blog" → Agent meldet neue Posts sofort mit Zusammenfassung.</div>
+          </div>
+          <div class="skill-item">
+            <h3>🔬 Deep Research <span class="plan-badge badge-business">Business</span></h3>
+            <p>Multi-Source Recherche: Web + Reddit + Twitter + News kombiniert. Tiefenanalysen zu jedem Thema.</p>
+            <div class="examples"><strong>Beispiel:</strong> "Recherchiere den Markt für KI-Assistenten in DACH" → 3-seitiger Report mit Quellen.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-section">
+        <h2>⏰ Proaktiv & Automatisiert</h2>
+        <div class="skill-grid">
+          <div class="skill-item">
+            <h3>💓 Heartbeat-System <span class="plan-badge badge-starter">Starter</span></h3>
+            <p>Dein Agent checkt proaktiv E-Mails, Kalender und wichtige Quellen. Meldet sich nur wenn nötig.</p>
+            <div class="examples"><strong>Beispiel:</strong> Agent um 14:00: "⚠️ Du hast in 30 Min ein Meeting mit dem Team. Soll ich die Agenda vorbereiten?"</div>
+          </div>
+          <div class="skill-item">
+            <h3>⏱️ Cron Jobs & Zeitpläne <span class="plan-badge badge-pro">Pro</span></h3>
+            <p>Automatische Aufgaben nach Zeitplan: Briefings, Reports, Checks. Auch wenn du schläfst.</p>
+            <div class="examples"><strong>Beispiel:</strong> Jeden Montag 8:00: Zusammenfassung aller offenen Tasks + Kalender der Woche + Wetter.</div>
+          </div>
+          <div class="skill-item">
+            <h3>📋 Morgen-Briefings <span class="plan-badge badge-pro">Pro</span></h3>
+            <p>Jeden Morgen eine personalisierte Zusammenfassung: Termine, E-Mails, News, Wetter.</p>
+            <div class="examples"><strong>Beispiel:</strong> 7:30: "Guten Morgen! 3 Termine heute, 2 wichtige Mails, 18°C sonnig. Reddit: [Top Post]"</div>
+          </div>
+          <div class="skill-item">
+            <h3>🔔 Smart Alerts <span class="plan-badge badge-pro">Pro</span></h3>
+            <p>Wichtige E-Mail? Termin vergessen? Deadline? Dein Agent erkennt es und meldet sich sofort.</p>
+            <div class="examples"><strong>Beispiel:</strong> Neue Mail von der Bank → Agent: "⚠️ Wichtige Mail von DKB: Kreditkarten-Abrechnung. Soll ich zusammenfassen?"</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-section">
+        <h2>🚀 Power-Features</h2>
+        <div class="skill-grid">
+          <div class="skill-item">
+            <h3>🎨 Bild-Generierung <span class="plan-badge badge-business">Business</span></h3>
+            <p>Logos, Social-Media-Posts, Moodboards, Produktfotos — mit DALL-E und modernster AI.</p>
+            <div class="examples"><strong>Beispiel:</strong> "Erstell ein Logo für mein Startup: minimalistisch, blau, Tech-Vibe" → 4 Varianten.</div>
+          </div>
+          <div class="skill-item">
+            <h3>💻 Code & Automationen <span class="plan-badge badge-business">Business</span></h3>
+            <p>Python-Scripts, API-Anbindungen, Workflow-Automatisierung. Dein Agent ist auch Developer.</p>
+            <div class="examples"><strong>Beispiel:</strong> "Schreib ein Script das meine CSV täglich per E-Mail verschickt" → Fertiges Python-Script.</div>
+          </div>
+          <div class="skill-item">
+            <h3>🐙 GitHub Integration <span class="plan-badge badge-business">Business</span></h3>
+            <p>Issues erstellen, PRs reviewen, CI-Status checken. Dein Agent versteht deinen Code.</p>
+            <div class="examples"><strong>Beispiel:</strong> "Was ist der Status von PR #42?" → Agent: "3 Approvals, CI grün, ready to merge."</div>
+          </div>
+          <div class="skill-item">
+            <h3>🏠 Smart Home <span class="plan-badge badge-business">Business</span></h3>
+            <p>Philips Hue, Sonos, Thermostate — steuere dein Zuhause per Chat.</p>
+            <div class="examples"><strong>Beispiel:</strong> "Mach das Licht im Wohnzimmer warm und dimm es auf 40%" → Done.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; padding: 3rem 0;">
+        <h2 style="margin-bottom: 1rem;">Bereit loszulegen?</h2>
+        <a class="btn btn-primary" href="https://t.me/xiim_agent_bot" target="_blank" style="margin-right: 0.5rem;">✈️ Agent erstellen via Telegram</a>
+        <a class="btn btn-ghost" href="/">← Zur Startseite</a>
+      </div>
+    </div>
+  </body>
+</html>
