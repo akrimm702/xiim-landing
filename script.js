@@ -190,9 +190,118 @@ function initDemoChat() {
   pushMessage();
 }
 
+function initConfigurator() {
+  const nameInput = $("#agentName");
+  const greeting = $("#configGreeting");
+  const response = $("#configResponse");
+  const chips = $$(".chip");
+
+  if (!nameInput || !greeting) return;
+
+  const personalities = {
+    professional: { greeting: "Guten Tag! Ich bin <strong>%NAME%</strong>. Wie kann ich Ihnen behilflich sein?", response: "Sie haben 3 Termine heute. Um 10:00 das Team-Meeting, 14:00 Kundencall und 16:30 Review. Soll ich die Agenda vorbereiten?" },
+    friendly: { greeting: "Hey! 😊 Ich bin <strong>%NAME%</strong>! Was kann ich für dich tun?", response: "Du hast heute 3 Termine — aber erstmal: vergiss nicht genug Wasser zu trinken! ☕ Soll ich dir die Übersicht schicken?" },
+    witty: { greeting: "Na, wer hat hier nach einem Genie gefragt? Ich bin <strong>%NAME%</strong>. Schieß los.", response: "3 Termine. 47 ungelesene Mails. Und du fragst mich was ansteht? Alles. Alles steht an. 😏" },
+    chill: { greeting: "Yo, ich bin <strong>%NAME%</strong>. Was geht? ✌️", response: "3 Termine heute, easy. Erstes erst um 10 — du hast noch Zeit für Kaffee. ☕" }
+  };
+
+  let currentPersonality = "professional";
+
+  function updatePreview() {
+    const name = nameInput.value.trim() || "Dein Agent";
+    const p = personalities[currentPersonality];
+    greeting.innerHTML = p.greeting.replace("%NAME%", name);
+    response.innerHTML = p.response;
+  }
+
+  nameInput.addEventListener("input", updatePreview);
+
+  chips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      chips.forEach(c => c.classList.remove("active"));
+      chip.classList.add("active");
+      currentPersonality = chip.dataset.personality;
+      updatePreview();
+    });
+  });
+}
+
+function initMobileFeatureTabs() {
+  if (window.innerWidth > 480) return;
+
+  const featuresSection = $("#features .container");
+  if (!featuresSection) return;
+
+  const categories = $$(".feature-category", featuresSection);
+  if (!categories.length) return;
+
+  const tabLabels = ["💬 Messaging", "📅 Produktivität", "📄 Dokumente", "⏰ Proaktiv", "🚀 Power"];
+
+  const tabBar = document.createElement("div");
+  tabBar.className = "mobile-category-tabs";
+
+  categories.forEach((cat, i) => {
+    const btn = document.createElement("button");
+    btn.className = "mobile-cat-tab" + (i === 0 ? " active" : "");
+    btn.textContent = tabLabels[i] || cat.querySelector(".category-title")?.textContent || `Tab ${i + 1}`;
+    btn.addEventListener("click", () => {
+      $$(".mobile-cat-tab", tabBar).forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      categories.forEach(c => c.classList.remove("mobile-active"));
+      cat.classList.add("mobile-active");
+      // Ensure reveal visible
+      $$(".reveal", cat).forEach(el => el.classList.add("visible"));
+    });
+    tabBar.appendChild(btn);
+  });
+
+  // Insert before first category
+  categories[0].parentNode.insertBefore(tabBar, categories[0]);
+  categories[0].classList.add("mobile-active");
+}
+
+// Re-init on resize
+let mobileTabsInitialized = false;
+function checkMobileTabs() {
+  if (window.innerWidth <= 480 && !mobileTabsInitialized) {
+    initMobileFeatureTabs();
+    mobileTabsInitialized = true;
+  }
+}
+
+function initBurger() {
+  const btn = $("#burgerBtn");
+  const nav = $("#navLinks");
+  if (!btn || !nav) return;
+
+  function toggle(open) {
+    const isOpen = open ?? !nav.classList.contains("open");
+    btn.classList.toggle("open", isOpen);
+    nav.classList.toggle("open", isOpen);
+    btn.setAttribute("aria-expanded", isOpen);
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  }
+
+  btn.addEventListener("click", () => toggle());
+
+  // Close on link click
+  $$("a", nav).forEach(a => {
+    a.addEventListener("click", () => toggle(false));
+  });
+
+  // Close on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && nav.classList.contains("open")) toggle(false);
+  });
+}
+
+initBurger();
 initReveal();
 initParticles();
 initSmoothDemoLink();
 initPricingToggle();
 initFaq();
 initDemoChat();
+initConfigurator();
+checkMobileTabs();
+window.addEventListener("resize", checkMobileTabs);

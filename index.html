@@ -51,7 +51,10 @@
           </svg>
           <span>XIIM</span>
         </a>
-        <nav class="nav-links">
+        <button class="burger" id="burgerBtn" aria-label="Menü öffnen" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links" id="navLinks">
           <a href="#features">Features</a>
           <a href="#pricing">Preise</a>
           <a href="#business">Unternehmen</a>
@@ -126,16 +129,162 @@
 
       <section class="section" id="features">
         <div class="container">
-          <h2 class="section-title reveal">Features, die wirklich arbeiten</h2>
-          <div class="features-grid">
-            <article class="feature-card glass reveal"><h3>🧠 Persönliches Gedächtnis</h3><p>Dein Agent lernt dich kennen und merkt sich alles.</p></article>
-            <article class="feature-card glass reveal"><h3>🔍 Web-Recherche</h3><p>Echtzeitsuche im Internet, Zusammenfassungen, Analysen.</p></article>
-            <article class="feature-card glass reveal"><h3>📧 E-Mail & Kalender</h3><p>Verwalte Termine und E-Mails direkt per Chat.</p></article>
-            <article class="feature-card glass reveal"><h3>📊 Datenanalyse</h3><p>PDFs, Excel, CSV - dein Agent versteht alles.</p></article>
-            <article class="feature-card glass reveal"><h3>🎨 Kreativ-Tools</h3><p>Texte, Bilder, Ideen - auf Knopfdruck.</p></article>
-            <article class="feature-card glass reveal"><h3>🔒 Privat & Sicher</h3><p>Deine Daten gehören dir. Verschlüsselt. DSGVO-konform.</p></article>
-            <article class="feature-card glass reveal"><h3>🏢 Business-Ready</h3><p>Team-Features, API-Zugang, Custom Skills.</p></article>
-            <article class="feature-card glass reveal"><h3>🌍 Überall verfügbar</h3><p>WhatsApp, Telegram, Web - wo du willst.</p></article>
+          <h2 class="section-title reveal">Alles, was ein Agent können muss</h2>
+          <p class="section-subtitle reveal">Kein Spielzeug. Ein vollwertiger digitaler Mitarbeiter, der wirklich arbeitet.</p>
+
+          <div class="feature-category reveal">
+            <h3 class="category-title">💬 Kommunikation & Messaging</h3>
+            <div class="features-grid">
+              <article class="feature-card glass reveal">
+                <h3>📱 WhatsApp-Agent</h3>
+                <p>Dein Agent antwortet direkt per WhatsApp — 24/7, in deinem Stil. Wie ein zweites Ich.</p>
+              </article>
+              <article class="feature-card glass reveal">
+                <h3>✈️ Telegram & Web</h3>
+                <p>Nutze Telegram, WhatsApp oder die Web-Oberfläche. Nahtlos zwischen Kanälen wechseln.</p>
+              </article>
+              <article class="feature-card glass reveal">
+                <h3>📧 E-Mail-Postfächer</h3>
+                <p>Dein Agent liest, sortiert und beantwortet E-Mails. Spam raus, Wichtiges rein. Automatisch.</p>
+              </article>
+              <article class="feature-card glass reveal">
+                <h3>🗣️ Sprachnachrichten</h3>
+                <p>Empfängt und versteht Sprachnachrichten. Antwortet auf Wunsch auch per Voice — mit deiner Stimme.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="feature-category reveal">
+            <h3 class="category-title">📅 Produktivität & Organisation</h3>
+            <div class="features-grid">
+              <article class="feature-card glass reveal">
+                <h3>📅 Kalender & Termine</h3>
+                <p>Termine erstellen, verschieben, erinnern. Dein Agent managed deinen Kalender wie ein persönlicher Assistent.</p>
+              </article>
+              <article class="feature-card glass reveal">
+                <h3>✅ Aufgaben & Projekte</h3>
+                <p>To-Dos, Projektpläne, Deadlines — alles im Griff. Erinnert dich proaktiv an offene Tasks.</p>
+              </article>
+              <article class="feature-card glass reveal">
+                <h3>🔍 Web-Recherche</h3>
+                <p>Echtzeitsuche im Internet mit Zusammenfassungen. Marktanalysen, Wettbewerber, Trends — in Sekunden.</p>
+              </article>
+              <article class="feature-card glass reveal">
+                <h3>🧠 Persönliches Gedächtnis</h3>
+                <p>Dein Agent lernt dich kennen, merkt sich Vorlieben, Kontakte und Kontext — wird jeden Tag besser.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="feature-category reveal">
+            <h3 class="category-title">📄 Dokumente & Dateien</h3>
+            <div class="features-grid">
+              <article class="feature-card glass reveal">
+                <h3>📑 PDF erstellen & bearbeiten</h3>
+                <p>Angebote, Berichte, Verträge — dein Agent erstellt professionelle PDFs auf Zuruf.</p>
+              </article>
+              <article class="feature-card glass reveal">
+                <h3>📝 Word-Dokumente</h3>
+                <p>Briefe, Proposals, Dokumentationen — formatiert, strukturiert, versandfertig.</p>
+              </article>
+              <article class="feature-card glass reveal">
+                <h3>📊 Excel & Kalkulationen</h3>
+                <p>Kalkulationssheets, Budgetpläne, Datenanalysen — dein Agent baut dir die Tabelle, die du brauchst.</p>
+              </article>
+              <article class="feature-card glass reveal">
+                <h3>📈 Projektpläne & Reports</h3>
+                <p>Gantt-Charts, Statusberichte, KPI-Dashboards — von der Idee zum fertigen Dokument in Minuten.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="feature-category reveal">
+            <h3 class="category-title">⏰ Proaktiv & Automatisiert</h3>
+            <div class="features-grid">
+              <article class="feature-card glass reveal">
+                <h3>💓 Heartbeat-System</h3>
+                <p>Dein Agent schläft nie. Er checkt proaktiv E-Mails, Kalender und Nachrichten — und meldet sich, wenn etwas wichtig ist.</p>
+              </article>
+              <article class="feature-card glass reveal">
+                <h3>⏱️ Cron Jobs & Zeitpläne</h3>
+                <p>Tägliche Briefings, wöchentliche Reports, Erinnerungen — dein Agent arbeitet nach Zeitplan, auch wenn du schläfst.</p>
+              </article>
+              <article class="feature-card glass reveal">
+                <h3>📋 Morgen-Briefings</h3>
+                <p>Jeden Morgen eine Zusammenfassung: Termine, wichtige E-Mails, News, Wetter. Personalisiert. Automatisch.</p>
+              </article>
+              <article class="feature-card glass reveal">
+                <h3>🔔 Smart Alerts</h3>
+                <p>Wichtige E-Mail rein? Termin in 30 Min? Deadline vergessen? Dein Agent erkennt es und meldet sich sofort.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="feature-category reveal">
+            <h3 class="category-title">🚀 Power-Features</h3>
+            <div class="features-grid">
+              <article class="feature-card glass reveal">
+                <h3>🎨 Bild-Generierung</h3>
+                <p>Logos, Social-Media-Posts, Moodboards — dein Agent erstellt Bilder mit modernster AI.</p>
+              </article>
+              <article class="feature-card glass reveal">
+                <h3>💻 Code & Automationen</h3>
+                <p>Scripts schreiben, APIs anbinden, Workflows automatisieren. Dein Agent ist auch Developer.</p>
+              </article>
+              <article class="feature-card glass reveal">
+                <h3>🏠 Smart Home</h3>
+                <p>Lichter, Thermostate, Musik — steuere dein Zuhause per Chat. „Mach das Licht im Büro an."</p>
+              </article>
+              <article class="feature-card glass reveal">
+                <h3>🔒 Privat & DSGVO</h3>
+                <p>Deine Daten gehören dir. Ende-zu-Ende verschlüsselt. Server in Deutschland. Kein Training auf deinen Daten.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="configurator">
+        <div class="container">
+          <h2 class="section-title reveal">Bau deinen Agent — jetzt</h2>
+          <p class="section-subtitle reveal">Probier's aus. Gib deinem Agent einen Namen und eine Persönlichkeit.</p>
+          <div class="configurator-grid reveal">
+            <div class="config-form glass">
+              <div class="config-field">
+                <label for="agentName">Name deines Agents</label>
+                <input type="text" id="agentName" placeholder="z.B. Max, Luna, Jarvis..." maxlength="20" autocomplete="off" />
+              </div>
+              <div class="config-field">
+                <label>Persönlichkeit</label>
+                <div class="personality-chips">
+                  <button class="chip active" data-personality="professional">🎯 Professionell</button>
+                  <button class="chip" data-personality="friendly">😊 Freundlich</button>
+                  <button class="chip" data-personality="witty">😏 Schlagfertig</button>
+                  <button class="chip" data-personality="chill">😎 Entspannt</button>
+                </div>
+              </div>
+              <div class="config-field">
+                <label>Features</label>
+                <div class="feature-toggles">
+                  <label class="toggle-label"><input type="checkbox" checked /> 📧 E-Mail</label>
+                  <label class="toggle-label"><input type="checkbox" checked /> 📅 Kalender</label>
+                  <label class="toggle-label"><input type="checkbox" /> 📊 Excel & Docs</label>
+                  <label class="toggle-label"><input type="checkbox" /> 🏠 Smart Home</label>
+                  <label class="toggle-label"><input type="checkbox" checked /> 🔍 Web-Recherche</label>
+                  <label class="toggle-label"><input type="checkbox" /> 🎨 Bilder</label>
+                </div>
+              </div>
+            </div>
+            <div class="config-preview glass">
+              <div class="phone glass">
+                <div class="phone-top"><span></span><span></span><span></span></div>
+                <div class="chat-screen" id="configChat">
+                  <div class="bubble in" id="configGreeting">Hi! Ich bin <strong>Dein Agent</strong>. Wie kann ich dir helfen?</div>
+                  <div class="bubble out">Was steht heute an?</div>
+                  <div class="bubble in" id="configResponse">Du hast 3 Termine heute. Soll ich dir eine Übersicht schicken?</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
