@@ -427,8 +427,8 @@ body {
 .phone-name { font-size: 0.9rem; font-weight: 600; color: #fff; }
 .phone-status { font-size: 0.72rem; color: #22c55e; letter-spacing: 0.02em; }
 .phone-body {
-  padding: 1rem 0.8rem;
-  height: 320px;
+  padding: 0.8rem;
+  height: 300px;
   overflow: hidden;
   position: relative;
 }
