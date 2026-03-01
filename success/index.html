@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XIIM — Zahlung erfolgreich!</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .success-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;}
+    .success-card{max-width:480px;padding:3rem 2rem;border-radius:20px;border:1px solid var(--stroke);background:var(--bg-soft);}
+    .success-icon{font-size:4rem;margin-bottom:1rem;}
+    .success-card h1{font-size:1.8rem;margin-bottom:0.5rem;}
+    .success-card p{color:var(--text-muted);margin-bottom:1.5rem;line-height:1.6;}
+    .countdown{font-size:0.9rem;color:var(--text-muted);margin-top:1rem;}
+  </style>
+</head>
+<body>
+  <div class="success-wrap">
+    <div class="success-card glass">
+      <div class="success-icon">🎉</div>
+      <h1>Zahlung erfolgreich!</h1>
+      <p>Dein XIIM Agent wird jetzt erstellt. Das dauert nur wenige Sekunden.</p>
+      <a href="https://t.me/xiim_agent_bot" class="btn btn-primary" style="width:100%;">
+        ✈️ Zum Agent auf Telegram
+      </a>
+      <p class="countdown" id="countdown">Automatische Weiterleitung in <strong>5</strong> Sekunden...</p>
+    </div>
+  </div>
+  <script>
+    let sec = 5;
+    const el = document.getElementById('countdown');
+    const timer = setInterval(() => {
+      sec--;
+      if (sec <= 0) {
+        clearInterval(timer);
+        window.location.href = 'https://t.me/xiim_agent_bot';
+      } else {
+        el.innerHTML = 'Automatische Weiterleitung in <strong>' + sec + '</strong> Sekunden...';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
