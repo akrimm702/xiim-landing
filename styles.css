@@ -306,7 +306,7 @@ body {
 .chat-screen {
   display: grid;
   gap: 0.45rem;
-  min-height: 360px;
+  height: 340px;
   background: rgba(6, 10, 25, 0.7);
   border-radius: var(--radius-md);
   padding: 0.95rem;
@@ -392,14 +392,19 @@ body {
 
 .demo-wrap {
   position: relative;
-  min-height: 360px;
+  height: 340px;
   overflow: hidden;
 }
 
 .demo-chat {
   display: grid;
   gap: 0.7rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+  scrollbar-width: none;
 }
+.demo-chat::-webkit-scrollbar { display: none; }
 
 .msg {
   width: fit-content;
