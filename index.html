@@ -6,7 +6,7 @@
     <title>XIIM — Dein persönlicher KI-Agent per Messenger</title>
     <meta
       name="description"
-      content="XIIM ist deine AI-Agent-Plattform für Telegram. WhatsApp &amp; Web kommen bald. Dein persönlicher KI-Agent in Minuten: privat, sicher, business-ready."
+      content="XIIM ist deine AI-Agent-Plattform für Telegram &amp; WhatsApp. Dein persönlicher KI-Agent in Minuten: privat, sicher, business-ready."
     />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
@@ -145,7 +145,7 @@
                 <svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v10H8l-4 4V5z" /></svg>
               </div>
               <h3>Schreib uns</h3>
-              <p>Starte eine Nachricht per Telegram — weitere Kanäle kommen bald.</p>
+              <p>Starte eine Nachricht per Telegram oder WhatsApp — dein Agent antwortet sofort.</p>
             </article>
             <article class="step-card glass reveal">
               <div class="icon-wrap" aria-hidden="true">
@@ -174,12 +174,12 @@
             <h3 class="category-title">💬 Kommunikation & Messaging</h3>
             <div class="features-grid">
               <article class="feature-card glass reveal">
-                <h3>📱 WhatsApp-Agent <span style="font-size:0.65em;background:rgba(255,255,255,0.1);padding:2px 8px;border-radius:8px;vertical-align:middle">Coming Soon</span></h3>
-                <p>Dein Agent antwortet direkt per WhatsApp — 24/7, in deinem Stil. Wie ein zweites Ich.</p>
+                <h3>📱 WhatsApp-Agent <span style="font-size:0.65em;background:linear-gradient(135deg,#22c55e,#16a34a);padding:2px 8px;border-radius:8px;vertical-align:middle">Live</span></h3>
+                <p>Dein Agent antwortet direkt per WhatsApp — 24/7, in deinem Stil. Schreib einfach los.</p>
               </article>
               <article class="feature-card glass reveal">
                 <h3>✈️ Telegram & Web</h3>
-                <p>Nutze Telegram oder die Web-Oberfläche. WhatsApp kommt bald.</p>
+                <p>Nutze Telegram, WhatsApp oder die Web-Oberfläche. Alle Kanäle verbunden.</p>
               </article>
               <article class="feature-card glass reveal">
                 <h3>📧 E-Mail-Postfächer</h3>
@@ -369,7 +369,7 @@
               <p class="billing-note">~200 Nachrichten/Tag</p>
               <ul>
                 <li>1 persönlicher Agent</li>
-                <li>Telegram Messenger</li>
+                <li>Telegram & WhatsApp</li>
                 <li>7 Skills (Wetter, Excel, CSV, Bilder, Video, ...)</li>
                 <li>Persönliches Gedächtnis</li>
                 <li>Web-Recherche &amp; Gedächtnis</li>
@@ -443,11 +443,11 @@
             </article>
             <article class="faq-item glass reveal">
               <button class="faq-question" aria-expanded="false">Wie funktioniert die Einrichtung?</button>
-              <div class="faq-answer"><p>Du startest per Telegram, definierst Persönlichkeit und Features, und dein Agent ist in wenigen Minuten aktiv.</p></div>
+              <div class="faq-answer"><p>Du startest per Telegram oder WhatsApp, definierst Persönlichkeit und Features, und dein Agent ist in wenigen Minuten aktiv.</p></div>
             </article>
             <article class="faq-item glass reveal">
               <button class="faq-question" aria-expanded="false">Welche Messenger werden unterstützt?</button>
-              <div class="faq-answer"><p>Aktuell unterstützt XIIM Telegram. WhatsApp und eine Web-Oberfläche kommen bald.</p></div>
+              <div class="faq-answer"><p>XIIM unterstützt Telegram und WhatsApp. Eine Web-Oberfläche kommt bald.</p></div>
             </article>
             <article class="faq-item glass reveal">
               <button class="faq-question" aria-expanded="false">Sind meine Daten sicher?</button>
@@ -527,11 +527,17 @@
           style="width:100%;padding:0.7rem 1rem;border-radius:8px;border:1px solid var(--stroke);background:var(--bg-deep);color:var(--text);font-size:1rem;">
       </div>
       <div style="margin-bottom:1.5rem;">
-        <label style="display:block;margin-bottom:0.3rem;font-size:0.9rem;">Oder direkt via Telegram starten</label>
-        <a id="signup-tg-link" href="https://t.me/xiim_agent_bot?start=pro" target="_blank"
-          style="display:inline-flex;align-items:center;gap:0.5rem;color:var(--cyan);font-weight:600;">
-          ✈️ Via Telegram starten (empfohlen)
-        </a>
+        <label style="display:block;margin-bottom:0.5rem;font-size:0.9rem;">Oder direkt via Messenger starten</label>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <a id="signup-tg-link" href="https://t.me/xiim_agent_bot?start=pro" target="_blank"
+            style="display:inline-flex;align-items:center;gap:0.5rem;color:var(--cyan);font-weight:600;">
+            ✈️ Telegram
+          </a>
+          <a id="signup-wa-link" href="https://wa.me/18316075556?text=start" target="_blank"
+            style="display:inline-flex;align-items:center;gap:0.5rem;color:#22c55e;font-weight:600;">
+            💬 WhatsApp
+          </a>
+        </div>
       </div>
       <button type="submit" class="btn btn-primary" style="width:100%;" id="signup-submit">
         Weiter zur Zahlung →
@@ -564,6 +570,7 @@ function openSignup(plan) {
   plan = plan || 'pro';
   document.getElementById('signup-plan').value = plan;
   document.getElementById('signup-tg-link').href = 'https://t.me/xiim_agent_bot?start=' + plan;
+  document.getElementById('signup-wa-link').href = 'https://wa.me/18316075556?text=start%20' + plan;
   document.getElementById('signup-modal').style.display = 'flex';
   document.body.style.overflow = 'hidden';
 }
