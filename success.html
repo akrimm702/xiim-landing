@@ -82,16 +82,40 @@
   (function() {
     const params = new URLSearchParams(window.location.search);
     const token = params.get('token');
+    const sessionId = params.get('session_id');
     
-    if (!token) {
+    function showSuccess(name, plan, linkToken) {
       document.getElementById('loadingState').style.display = 'none';
-      document.getElementById('errorState').style.display = 'block';
+      document.getElementById('paidState').style.display = 'block';
+      document.getElementById('userName').textContent = name || 'User';
+      const planNames = {starter: '⚡ Starter', pro: '⭐ Pro', business: '🚀 Business'};
+      document.getElementById('planName').textContent = planNames[plan] || plan || 'Pro';
+      if (linkToken) {
+        document.getElementById('tokenDisplay').textContent = linkToken.substring(0, 12);
+        document.getElementById('tgLink').href = 'https://t.me/xiim_agent_bot?start=paid_' + linkToken;
+        document.getElementById('waLink').href = 'https://wa.me/18316075556?text=paid_' + linkToken;
+      } else {
+        document.getElementById('tokenDisplay').textContent = '—';
+        document.getElementById('tgLink').href = 'https://t.me/xiim_agent_bot?start=pro';
+        document.getElementById('waLink').href = 'https://wa.me/18316075556?text=start';
+      }
+    }
+    
+    // No token but has session_id → old Stripe redirect, show success directly
+    if (!token && sessionId) {
+      showSuccess('', '', null);
       return;
     }
     
-    // Poll for payment confirmation
+    // No token at all → show success with generic links
+    if (!token) {
+      showSuccess('', '', null);
+      return;
+    }
+    
+    // Has token → poll for payment confirmation
     let attempts = 0;
-    const maxAttempts = 20;
+    const maxAttempts = 10;
     
     async function checkPayment() {
       try {
@@ -99,45 +123,25 @@
         const data = await resp.json();
         
         if (data.valid && data.paid) {
-          // Payment confirmed!
-          document.getElementById('loadingState').style.display = 'none';
-          document.getElementById('paidState').style.display = 'block';
-          document.getElementById('userName').textContent = data.name || 'User';
-          
-          const planNames = {starter: '⚡ Starter', pro: '⭐ Pro', business: '🚀 Business'};
-          document.getElementById('planName').textContent = planNames[data.plan] || data.plan;
-          document.getElementById('tokenDisplay').textContent = token.substring(0, 12);
-          
-          // Deep-links with token
-          document.getElementById('tgLink').href = 'https://t.me/xiim_agent_bot?start=paid_' + token;
-          document.getElementById('waLink').href = 'https://wa.me/18316075556?text=paid_' + token;
+          showSuccess(data.name, data.plan, token);
           return;
         }
         
-        if (data.valid && !data.paid && attempts < maxAttempts) {
+        if (attempts < maxAttempts) {
           attempts++;
           setTimeout(checkPayment, 3000);
           return;
         }
         
-        // Show paid state anyway after timeout (Stripe webhook might be slow)
-        if (data.valid) {
-          document.getElementById('loadingState').style.display = 'none';
-          document.getElementById('paidState').style.display = 'block';
-          document.getElementById('userName').textContent = data.name || 'User';
-          const planNames = {starter: '⚡ Starter', pro: '⭐ Pro', business: '🚀 Business'};
-          document.getElementById('planName').textContent = planNames[data.plan] || data.plan;
-          document.getElementById('tokenDisplay').textContent = token.substring(0, 12);
-          document.getElementById('tgLink').href = 'https://t.me/xiim_agent_bot?start=paid_' + token;
-          document.getElementById('waLink').href = 'https://wa.me/18316075556?text=paid_' + token;
-        } else {
-          document.getElementById('loadingState').style.display = 'none';
-          document.getElementById('errorState').style.display = 'block';
-        }
+        // Timeout — show anyway (Stripe webhook might be slow)
+        showSuccess(data.name || '', data.plan || '', data.valid ? token : null);
       } catch(e) {
         if (attempts < maxAttempts) {
           attempts++;
           setTimeout(checkPayment, 3000);
+        } else {
+          // After all retries, just show the success page
+          showSuccess('', '', token);
         }
       }
     }
