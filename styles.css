@@ -390,6 +390,48 @@ body {
   min-height: 130px;
 }
 
+
+/* ═══ Demo Split: Config + Phone ═══ */
+.demo-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.config-panel {
+  padding: 1.5rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.config-panel .config-field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.config-panel input[type="text"] {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid var(--stroke);
+  background: var(--bg-deep);
+  color: var(--text);
+  font-size: 0.95rem;
+}
+@media (max-width: 680px) {
+  .demo-split {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+}
+
 /* ═══ Phone Mockup ═══ */
 .phone-frame {
   position: relative;

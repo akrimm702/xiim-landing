@@ -8,6 +8,8 @@
       name="description"
       content="XIIM ist deine AI-Agent-Plattform für Telegram. WhatsApp &amp; Web kommen bald. Dein persönlicher KI-Agent in Minuten: privat, sicher, business-ready."
     />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.svg">
     <meta name="theme-color" content="#0a0a1a" />
 
     <meta property="og:type" content="website" />
@@ -280,14 +282,14 @@
         </div>
       </section>
 
-      <section class="section" id="configurator">
+      <section class="section" id="demo">
         <div class="container">
-          <h2 class="section-title reveal">Bau deinen Agent — jetzt</h2>
-          <p class="section-subtitle reveal">Probier's aus. Gib deinem Agent einen Namen und eine Persönlichkeit.</p>
-          <div class="configurator-grid reveal">
-            <div class="config-form glass">
+          <h2 class="section-title reveal">Dein Agent. Dein Stil.</h2>
+          <p class="section-subtitle reveal">Konfiguriere deinen Agent und sieh live wie er antwortet.</p>
+          <div class="demo-split reveal">
+            <div class="config-panel glass">
               <div class="config-field">
-                <label for="agentName">Name deines Agents</label>
+                <label for="agentName">Name</label>
                 <input type="text" id="agentName" placeholder="z.B. Max, Luna, Jarvis..." maxlength="20" autocomplete="off" />
               </div>
               <div class="config-field">
@@ -300,51 +302,35 @@
                 </div>
               </div>
               <div class="config-field">
-                <label>Features</label>
+                <label>Skills</label>
                 <div class="feature-toggles">
                   <label class="toggle-label"><input type="checkbox" checked /> 📧 E-Mail</label>
                   <label class="toggle-label"><input type="checkbox" checked /> 📅 Kalender</label>
-                  <label class="toggle-label"><input type="checkbox" /> 📊 Excel & Docs</label>
-                  <label class="toggle-label"><input type="checkbox" /> 🏠 Smart Home</label>
-                  <label class="toggle-label"><input type="checkbox" checked /> 🔍 Web-Recherche</label>
+                  <label class="toggle-label"><input type="checkbox" checked /> 🔍 Recherche</label>
+                  <label class="toggle-label"><input type="checkbox" /> 📊 Excel</label>
                   <label class="toggle-label"><input type="checkbox" /> 🎨 Bilder</label>
+                  <label class="toggle-label"><input type="checkbox" /> 🐙 GitHub</label>
                 </div>
               </div>
+              <a href="#signup" class="btn btn-primary" style="width:100%;margin-top:1rem;" onclick="openSignup('pro')">Agent erstellen →</a>
             </div>
-            <div class="config-preview glass">
-              <div class="phone glass">
-                <div class="phone-top"><span></span><span></span><span></span></div>
-                <div class="chat-screen" id="configChat">
-                  <div class="bubble in" id="configGreeting">Hi! Ich bin <strong>Dein Agent</strong>. Wie kann ich dir helfen?</div>
-                  <div class="bubble out">Was steht heute an?</div>
-                  <div class="bubble in" id="configResponse">Du hast 3 Termine heute. Soll ich dir eine Übersicht schicken?</div>
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <div class="phone-header">
+                <div class="phone-avatar"><svg viewBox="0 0 48 48" fill="none" width="20" height="20"><path d="M8 8L22 40" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><path d="M26 8L40 40" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><path d="M14 16L34 16" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><path d="M14 32L34 32" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></div>
+                <div class="phone-header-info">
+                  <span class="phone-name" id="demoAgentName">XIIM Agent</span>
+                  <span class="phone-status">● Online</span>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="demo">
-        <div class="container" style="max-width:520px;">
-          <h2 class="section-title reveal">Live-Gefühl: So spricht dein Agent</h2>
-          <p class="section-subtitle reveal" style="margin-bottom:2rem;">Echte Konversation. Kein Script — so arbeitet dein Agent wirklich.</p>
-          <div class="phone-frame reveal">
-            <div class="phone-notch"></div>
-            <div class="phone-header">
-              <div class="phone-avatar">🤖</div>
-              <div class="phone-header-info">
-                <span class="phone-name">XIIM Agent</span>
-                <span class="phone-status">● Online</span>
+              <div class="phone-body">
+                <div class="demo-chat" id="demoChat"></div>
+                <div class="typing" id="typingIndicator" aria-hidden="true"><span></span><span></span><span></span></div>
               </div>
-            </div>
-            <div class="phone-body">
-              <div class="demo-chat" id="demoChat"></div>
-              <div class="typing" id="typingIndicator" aria-hidden="true"><span></span><span></span><span></span></div>
-            </div>
-            <div class="phone-input-bar">
-              <span class="phone-input-placeholder">Nachricht schreiben...</span>
-              <span class="phone-send">➤</span>
+              <div class="phone-input-bar">
+                <span class="phone-input-placeholder">Nachricht schreiben...</span>
+                <span class="phone-send">➤</span>
+              </div>
             </div>
           </div>
         </div>

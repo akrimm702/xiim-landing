@@ -206,6 +206,13 @@ function initConfigurator() {
 
   if (!nameInput || !greeting) return;
 
+  // Sync name to phone header
+  const phoneNameEl = document.getElementById("demoAgentName");
+  nameInput.addEventListener("input", () => {
+    const n = nameInput.value.trim() || "XIIM Agent";
+    if (phoneNameEl) phoneNameEl.textContent = n;
+  });
+
   const personalities = {
     professional: { greeting: "Guten Tag! Ich bin <strong>%NAME%</strong>. Wie kann ich Ihnen behilflich sein?", response: "Sie haben 3 Termine heute. Um 10:00 das Team-Meeting, 14:00 Kundencall und 16:30 Review. Soll ich die Agenda vorbereiten?" },
     friendly: { greeting: "Hey! 😊 Ich bin <strong>%NAME%</strong>! Was kann ich für dich tun?", response: "Du hast heute 3 Termine — aber erstmal: vergiss nicht genug Wasser zu trinken! ☕ Soll ich dir die Übersicht schicken?" },
