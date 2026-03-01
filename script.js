@@ -136,49 +136,58 @@ function initFaq() {
 function initDemoChat() {
   const chat = $("#demoChat");
   const typing = $("#typingIndicator");
-  const form = $("#demoForm");
-  const input = $("#demoInput");
+  if (!chat || !typing) return;
 
-  if (!chat || !typing || !form || !input) return;
+  const script = [
+    { role: "user", text: "Hey XIIM, ich brauche einen schnellen Start in den Tag." },
+    {
+      role: "agent",
+      text: "Guten Morgen, Leon. Ich habe deinen Kalender gecheckt: 9:30 Sales-Meeting, 13:00 Kunden-Call."
+    },
+    { role: "user", text: "Bitte recherchiere die wichtigsten AI-Operations-Trends für 2026." },
+    {
+      role: "agent",
+      text: "Läuft. Top 3 Trends: Agentic Workflows, multimodale Automatisierung und sichere On-Prem-Hybridmodelle. Soll ich ein 1-Seiten-Briefing schicken?"
+    },
+    { role: "user", text: "Ja. Und erinnere mich um 16:45 an den Follow-up." },
+    {
+      role: "agent",
+      text: "Erledigt. Erinnerung ist gesetzt und Briefing in dein Postfach geplant."
+    }
+  ];
 
-  const pushMessage = (role, text) => {
-    const line = document.createElement("div");
-    line.className = `msg ${role}`;
-    line.textContent = text;
-    chat.appendChild(line);
-    chat.scrollTop = chat.scrollHeight;
+  let index = 0;
+
+  const pushMessage = () => {
+    if (index >= script.length) {
+      setTimeout(() => {
+        chat.textContent = "";
+        index = 0;
+        pushMessage();
+      }, 3000);
+      return;
+    }
+
+    const { role, text } = script[index];
+    typing.classList.add("visible");
+
+    setTimeout(
+      () => {
+        typing.classList.remove("visible");
+        const line = document.createElement("div");
+        line.className = `msg ${role}`;
+        line.textContent = text;
+        chat.appendChild(line);
+        chat.scrollTop = chat.scrollHeight;
+        index += 1;
+
+        setTimeout(pushMessage, role === "agent" ? 1350 : 900);
+      },
+      role === "agent" ? 800 : 450
+    );
   };
 
-  // Initial greeting
-  setTimeout(() => {
-    typing.classList.add("visible");
-    setTimeout(() => {
-      typing.classList.remove("visible");
-      pushMessage("agent", "Hey! Ich bin eine Demo des XIIM Agents. Was kann ich für dich tun?");
-    }, 800);
-  }, 500);
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const text = input.value.trim();
-    if (!text) return;
-
-    // Add user message
-    pushMessage("user", text);
-    input.value = "";
-
-    // Simulate agent typing
-    setTimeout(() => {
-      typing.classList.add("visible");
-
-      // Agent response
-      setTimeout(() => {
-        typing.classList.remove("visible");
-        pushMessage("agent", "Das ist eine Demo-Antwort! In der Vollversion würde ich mich jetzt um deine Anfrage kümmern. 😎");
-      }, 1200 + Math.random() * 800); // Random delay 1.2s - 2.0s
-
-    }, 400);
-  });
+  pushMessage();
 }
 
 function initConfigurator() {
