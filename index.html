@@ -37,6 +37,41 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+
+<!-- XIIM Beta Password Gate -->
+<div id="xiim-gate" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#0a0a1a;z-index:99999;display:flex;align-items:center;justify-content:center;font-family:system-ui,sans-serif">
+  <div style="text-align:center;color:#fff;padding:2rem">
+    <h1 style="font-size:2rem;margin-bottom:0.5rem;background:linear-gradient(135deg,#a855f7,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent">XIIM</h1>
+    <p style="color:#888;margin-bottom:1.5rem">Beta Access Required</p>
+    <input id="xiim-pw" type="password" placeholder="Passwort" autofocus
+      style="padding:12px 20px;border-radius:12px;border:1px solid #333;background:#111;color:#fff;font-size:1rem;width:250px;outline:none;text-align:center"
+      onkeydown="if(event.key==='Enter')document.getElementById('xiim-go').click()">
+    <br><br>
+    <button id="xiim-go" onclick="checkPw()"
+      style="padding:12px 32px;border-radius:12px;border:none;background:linear-gradient(135deg,#a855f7,#6366f1);color:#fff;font-size:1rem;cursor:pointer;font-weight:600">
+      Weiter
+    </button>
+    <p id="xiim-err" style="color:#f44;margin-top:1rem;display:none">Falsches Passwort</p>
+  </div>
+</div>
+<script>
+(function(){
+  var h="568e45aeac7689c041d304620f51b596c9eacb0177718eb827c1b903e96442f3";
+  if(localStorage.getItem("xiim_beta")===h){document.getElementById("xiim-gate").style.display="none";return}
+  document.getElementById("xiim-gate").style.display="flex";
+  document.body.style.overflow="hidden";
+  window.checkPw=async function(){
+    var pw=document.getElementById("xiim-pw").value;
+    var enc=new TextEncoder();
+    var buf=await crypto.subtle.digest("SHA-256",enc.encode(pw));
+    var hex=Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,"0")).join("");
+    if(hex===h){localStorage.setItem("xiim_beta",h);document.getElementById("xiim-gate").style.display="none";document.body.style.overflow="";}
+    else{document.getElementById("xiim-err").style.display="block";document.getElementById("xiim-pw").value="";}
+  };
+})();
+</script>
+<!-- End Beta Gate -->
+
     <div class="bg-orb orb-1" aria-hidden="true"></div>
     <div class="bg-orb orb-2" aria-hidden="true"></div>
 
