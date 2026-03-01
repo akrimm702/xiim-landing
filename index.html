@@ -345,7 +345,7 @@
         <div class="container">
           <div class="pricing-head reveal">
             <h2 class="section-title">Einfache Preise. Keine versteckten Kosten.</h2>
-            <p class="section-subtitle">Starter: 9 Skills. Pro &amp; Business: 22 Skills. Business hat mehr Volumen.</p>
+            <p class="section-subtitle">Starter: 9 Skills. Pro &amp; Business: 20 Skills. Business hat mehr Volumen.</p>
           </div>
           <div class="pricing-grid">
             <article class="price-card glass reveal" data-plan="starter" data-monthly="19">
@@ -372,7 +372,7 @@
                 <li>E-Mail, Google Workspace, Notion, Trello</li>
                 <li>TTS, Transkription, PDF-Editor</li>
                 <li>GitHub, RSS-Monitor, Audio</li>
-                <li>22 Skills insgesamt</li>
+                <li>20 Skills insgesamt</li>
               </ul>
               <a class="btn btn-primary" href="#signup" onclick="openSignup('pro')">Pro starten</a>
             </article>
@@ -489,35 +489,44 @@
 <div id="signup-modal" class="modal-overlay" style="display:none;">
   <div class="modal-content glass">
     <button class="modal-close" onclick="closeSignup()">&times;</button>
-    <h2 id="signup-title">Agent erstellen</h2>
-    <p id="signup-plan-info" style="color:var(--text-muted);margin-bottom:1.5rem;"></p>
+    <h2>Agent erstellen</h2>
+    <p style="color:var(--text-muted);margin-bottom:1.5rem;">Wähle deinen Plan und starte in 2 Minuten.</p>
     <form id="signup-form" onsubmit="submitSignup(event)">
-      <input type="hidden" id="signup-plan" value="pro">
       <div style="margin-bottom:1rem;">
-        <label style="display:block;margin-bottom:0.3rem;font-size:0.9rem;">Dein Name</label>
+        <label style="display:block;margin-bottom:0.3rem;font-size:0.9rem;font-weight:600;">Plan wählen</label>
+        <select id="signup-plan" required
+          style="width:100%;padding:0.7rem 1rem;border-radius:8px;border:1px solid var(--stroke);background:var(--bg-deep);color:var(--text);font-size:1rem;cursor:pointer;">
+          <option value="starter">⚡ Starter — €19/Monat (7 Skills, ~200 Msg/Tag)</option>
+          <option value="pro" selected>⭐ Pro — €49/Monat (20 Skills, ~1.000 Msg/Tag)</option>
+          <option value="business">🚀 Business — €99/Monat (20 Skills, ~5.000 Msg/Tag)</option>
+        </select>
+      </div>
+      <div style="margin-bottom:1rem;">
+        <label style="display:block;margin-bottom:0.3rem;font-size:0.9rem;font-weight:600;">Dein Name</label>
         <input type="text" id="signup-name" required placeholder="Wie heißt du?"
           style="width:100%;padding:0.7rem 1rem;border-radius:8px;border:1px solid var(--stroke);background:var(--bg-deep);color:var(--text);font-size:1rem;">
       </div>
       <div style="margin-bottom:1rem;">
-        <label style="display:block;margin-bottom:0.3rem;font-size:0.9rem;">E-Mail</label>
+        <label style="display:block;margin-bottom:0.3rem;font-size:0.9rem;font-weight:600;">E-Mail</label>
         <input type="email" id="signup-email" required placeholder="deine@email.de"
           style="width:100%;padding:0.7rem 1rem;border-radius:8px;border:1px solid var(--stroke);background:var(--bg-deep);color:var(--text);font-size:1rem;">
       </div>
-      <div style="margin-bottom:1.5rem;">
-        <label style="display:block;margin-bottom:0.3rem;font-size:0.9rem;">Oder direkt via Telegram starten</label>
-        <a id="signup-tg-link" href="https://t.me/xiim_agent_bot?start=pro" target="_blank"
-          style="display:inline-flex;align-items:center;gap:0.5rem;color:var(--cyan);font-weight:600;">
-          ✈️ Via Telegram starten (empfohlen)
-        </a>
-      </div>
-      <button type="submit" class="btn btn-primary" style="width:100%;" id="signup-submit">
+      <button type="submit" class="btn btn-primary" style="width:100%;margin-bottom:0.8rem;" id="signup-submit">
         Weiter zur Zahlung →
       </button>
+      <div style="text-align:center;">
+        <span style="font-size:0.85rem;color:var(--text-muted);">oder</span>
+      </div>
+      <a id="signup-tg-link" href="https://t.me/xiim_agent_bot?start=pro" target="_blank"
+        class="btn btn-ghost" style="width:100%;display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-top:0.5rem;">
+        ✈️ Via Telegram starten
+      </a>
       <p style="text-align:center;font-size:0.8rem;color:var(--text-muted);margin-top:0.8rem;">
         🔒 Sichere Zahlung via Stripe. Jederzeit kündbar.
       </p>
     </form>
     <div id="signup-loading" style="display:none;text-align:center;padding:2rem;">
+      <div style="font-size:2rem;margin-bottom:1rem;">⏳</div>
       <p>Checkout wird erstellt...</p>
     </div>
   </div>
@@ -531,17 +540,9 @@
 </style>
 
 <script>
-const PLAN_INFO = {
-  starter: {name:'Starter', price:'€19/Monat', desc:'~200 Nachrichten/Tag, Basis-Skills'},
-  pro: {name:'Pro', price:'€49/Monat', desc:'Alle Skills, ~1.000 Nachrichten/Tag'},
-  business: {name:'Business', price:'€99/Monat', desc:'Alle Skills, ~5.000 Nachrichten/Tag'},
-};
-
 function openSignup(plan) {
-  const info = PLAN_INFO[plan] || PLAN_INFO.pro;
+  plan = plan || 'pro';
   document.getElementById('signup-plan').value = plan;
-  document.getElementById('signup-title').textContent = info.name + ' Agent erstellen';
-  document.getElementById('signup-plan-info').textContent = info.price + ' — ' + info.desc;
   document.getElementById('signup-tg-link').href = 'https://t.me/xiim_agent_bot?start=' + plan;
   document.getElementById('signup-modal').style.display = 'flex';
   document.body.style.overflow = 'hidden';
@@ -551,6 +552,16 @@ function closeSignup() {
   document.getElementById('signup-modal').style.display = 'none';
   document.body.style.overflow = '';
 }
+
+// Update Telegram link when plan dropdown changes
+document.addEventListener('DOMContentLoaded', function() {
+  var planSelect = document.getElementById('signup-plan');
+  if (planSelect) {
+    planSelect.addEventListener('change', function() {
+      document.getElementById('signup-tg-link').href = 'https://t.me/xiim_agent_bot?start=' + this.value;
+    });
+  }
+});
 
 document.getElementById('signup-modal').addEventListener('click', function(e) {
   if (e.target === this) closeSignup();

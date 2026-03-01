@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>XIIM Skills — Was dein Agent alles kann</title>
-  <meta name="description" content="Alle Skills und Features der XIIM Agent-Plattform im Detail.">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Alle Skills der XIIM Agent-Plattform im Überblick.">
+  <link rel="stylesheet" href="../styles.css">
   <style>
     .skills-hero{padding:4rem 0 2rem;text-align:center;}
     .skills-hero h1{font-size:clamp(1.8rem,3vw,2.8rem);margin-bottom:0.5rem;}
@@ -13,7 +13,6 @@
     .plan-section{padding:2.5rem 0 1rem;}
     .plan-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;padding-bottom:0.5rem;border-bottom:2px solid var(--stroke);}
     .plan-header h2{font-size:1.5rem;margin:0;}
-    .plan-header .plan-price{font-size:0.95rem;color:var(--text-muted);}
     .plan-badge{padding:0.2rem 0.7rem;border-radius:99px;font-size:0.8rem;font-weight:700;}
     .badge-starter{background:rgba(34,197,94,0.15);color:#22c55e;border:1px solid rgba(34,197,94,0.3);}
     .badge-pro{background:rgba(6,182,212,0.15);color:var(--cyan);border:1px solid rgba(6,182,212,0.3);}
@@ -28,7 +27,11 @@
     .back-link{display:inline-block;margin:2rem 0;color:var(--cyan);text-decoration:none;font-weight:600;}
     .back-link:hover{text-decoration:underline;}
     .pricing-note{text-align:center;padding:1.5rem;margin:2rem 0;border-radius:12px;border:1px solid var(--stroke);background:var(--bg-soft);}
-    .tested-badge{display:inline-block;font-size:0.65em;background:rgba(34,197,94,0.15);color:#22c55e;padding:2px 8px;border-radius:8px;vertical-align:middle;margin-left:0.3rem;}
+    .builtin-section{padding:2rem 0;}
+    .builtin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;}
+    .builtin-item{padding:1rem;border-radius:var(--radius-sm);border:1px solid var(--stroke);background:var(--bg-soft);}
+    .builtin-item h4{margin:0 0 0.3rem;font-size:0.95rem;}
+    .builtin-item p{margin:0;font-size:0.85rem;color:var(--text-muted);}
     @media(max-width:480px){.skill-grid{grid-template-columns:1fr;}.plan-header{flex-wrap:wrap;}}
   </style>
 </head>
@@ -38,53 +41,34 @@
 
     <div class="skills-hero">
       <h1>Was dein XIIM Agent alles kann</h1>
-      <p>Jeder Skill ist real, getestet und funktional. Kein Mockup. Kein "Coming Soon". Echte Features.</p>
+      <p>Jeder Skill ist einsatzbereit. Kein "Coming Soon" — echte, funktionierende Features.</p>
     </div>
 
     <div class="pricing-note">
-      <strong>📦 Starter</strong> (€19/Mo) — 9 Skills, ~200 Msg/Tag &nbsp;|&nbsp;
-      <strong>⭐ Pro</strong> (€49/Mo) — 22 Skills, ~1.000 Msg/Tag &nbsp;|&nbsp;
-      <strong>🚀 Business</strong> (€99/Mo) — 22 Skills, ~5.000 Msg/Tag
+      <strong>⚡ Starter</strong> (€19/Mo) — 7 Skills, ~200 Msg/Tag &nbsp;|&nbsp;
+      <strong>⭐ Pro</strong> (€49/Mo) — 20 Skills, ~1.000 Msg/Tag &nbsp;|&nbsp;
+      <strong>🚀 Business</strong> (€99/Mo) — 20 Skills, ~5.000 Msg/Tag
     </div>
 
-    <!-- ═══════ ALWAYS INCLUDED (Built-in) ═══════ -->
-    <div class="plan-section">
-      <div class="plan-header">
-        <span class="plan-badge badge-starter">ALLE PLÄNE</span>
-        <h2>Eingebaute Fähigkeiten</h2>
-        <span class="plan-price">Immer dabei, kostenlos integriert</span>
-      </div>
-
-      <div class="skill-grid">
-        <div class="skill-item">
-          <h3>📱 Telegram Agent <span class="tested-badge">✓ Live</span></h3>
-          <p>Dein Agent antwortet direkt per Telegram — 24/7, in deinem Stil. Persönlichkeit wählbar beim Onboarding.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Was steht heute an?" → Dein Agent checkt Kalender, Wetter, E-Mails.</div>
+    <!-- ═══════ BUILT-IN (alle Pläne) ═══════ -->
+    <div class="builtin-section">
+      <h2 style="margin-bottom:1rem;">🔧 Immer dabei (alle Pläne)</h2>
+      <div class="builtin-grid">
+        <div class="builtin-item">
+          <h4>🌐 Web-Suche & Recherche</h4>
+          <p>Sucht im Internet, liest Webseiten, fasst Inhalte zusammen.</p>
         </div>
-        <div class="skill-item">
-          <h3>🔍 Web-Recherche <span class="tested-badge">✓ Live</span></h3>
-          <p>Echtzeitsuche im Internet. Artikel zusammenfassen, Fakten prüfen, Preise vergleichen.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Was kostet ein MacBook Pro M5?" → Vergleich aus mehreren Quellen.</div>
+        <div class="builtin-item">
+          <h4>📁 Dateien & Notizen</h4>
+          <p>Erstellt, liest und bearbeitet Dateien. Merkt sich Infos dauerhaft.</p>
         </div>
-        <div class="skill-item">
-          <h3>🌐 Webseiten lesen <span class="tested-badge">✓ Live</span></h3>
-          <p>Beliebige URLs aufrufen, lesen und als Zusammenfassung liefern.</p>
-          <div class="examples"><strong>Beispiel:</strong> Link senden → "Kernaussage in 3 Sätzen: ..."</div>
+        <div class="builtin-item">
+          <h4>🧠 Gedächtnis</h4>
+          <p>Erinnert sich an Gespräche, Vorlieben und Aufgaben — sessionübergreifend.</p>
         </div>
-        <div class="skill-item">
-          <h3>🧠 Persönliches Gedächtnis <span class="tested-badge">✓ Live</span></h3>
-          <p>Merkt sich alles über dich — Vorlieben, Kontakte, vergangene Gespräche. Wird mit der Zeit besser.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Mein Lieblingskaffee ist Flat White" → Wochen später abrufbar.</div>
-        </div>
-        <div class="skill-item">
-          <h3>📝 Notizen & Dateien <span class="tested-badge">✓ Live</span></h3>
-          <p>Notizen erstellen, Dateien schreiben, bearbeiten und durchsuchen.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Erstelle eine Einkaufsliste" → Als Datei gespeichert, jederzeit abrufbar.</div>
-        </div>
-        <div class="skill-item">
-          <h3>💻 Code ausführen <span class="tested-badge">✓ Live</span></h3>
-          <p>Shell-Befehle und Scripts ausführen. Datenverarbeitung, Automatisierung, API-Calls.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Analysiere diese CSV" → Python-Script läuft, Ergebnis kommt.</div>
+        <div class="builtin-item">
+          <h4>💬 Multi-Channel</h4>
+          <p>Erreichbar über Telegram. WhatsApp-Anbindung verfügbar.</p>
         </div>
       </div>
     </div>
@@ -92,150 +76,141 @@
     <!-- ═══════ STARTER SKILLS ═══════ -->
     <div class="plan-section">
       <div class="plan-header">
-        <span class="plan-badge badge-starter">STARTER</span>
-        <h2>Starter Skills</h2>
-        <span class="plan-price">Ab €19/Monat</span>
+        <h2>⚡ Starter Skills</h2>
+        <span class="plan-badge badge-starter">Ab €19/Mo</span>
       </div>
-
       <div class="skill-grid">
         <div class="skill-item">
-          <h3>☁️ Wetter <span class="tested-badge">✓ Getestet</span></h3>
+          <h3>🌤️ Wetter</h3>
           <p>Aktuelle Wetterdaten und Vorhersagen für jeden Ort weltweit.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Wetter in Hamburg?" → "3°C, sonnig, ab 16 Uhr Wolken."</div>
+          <div class="examples"><strong>Beispiel:</strong> "Wie wird das Wetter morgen in Berlin?"</div>
         </div>
         <div class="skill-item">
-          <h3>📋 Zusammenfassen <span class="tested-badge">✓ Getestet</span></h3>
-          <p>URLs, Podcasts, Videos, lange Texte — auf den Punkt zusammengefasst.</p>
-          <div class="examples"><strong>Beispiel:</strong> Hacker News Link → Top 5 Trends in 3 Sätzen.</div>
+          <h3>📊 CSV & Datenanalyse</h3>
+          <p>CSV-Dateien erstellen, filtern, analysieren und transformieren.</p>
+          <div class="examples"><strong>Beispiel:</strong> "Erstelle eine Tabelle mit meinen Ausgaben"</div>
         </div>
         <div class="skill-item">
-          <h3>📊 Datenanalyse <span class="tested-badge">✓ Getestet</span></h3>
-          <p>CSV und JSON Dateien analysieren, filtern, aggregieren. Reports aus Rohdaten.</p>
-          <div class="examples"><strong>Beispiel:</strong> Verkaufs-CSV → "Top-Produkt: +23% vs. Vormonat"</div>
+          <h3>📗 Excel</h3>
+          <p>Excel-Dateien erstellen, bearbeiten und auswerten.</p>
+          <div class="examples"><strong>Beispiel:</strong> "Erstelle eine Excel mit Umsatzzahlen Q1-Q4"</div>
         </div>
         <div class="skill-item">
-          <h3>📑 Excel <span class="tested-badge">✓ Getestet</span></h3>
-          <p>Excel-Dateien erstellen und lesen. Kalkulationen, Budgets, Tabellen.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Excel: Produkt, Preis, Menge" → Fertige .xlsx Datei.</div>
+          <h3>📄 Dokument-Konverter</h3>
+          <p>PDF, Word, PowerPoint, HTML → lesbarer Text. Ideal für Zusammenfassungen.</p>
+          <div class="examples"><strong>Beispiel:</strong> "Fasse dieses PDF zusammen"</div>
         </div>
         <div class="skill-item">
-          <h3>📄 Dokumente konvertieren <span class="tested-badge">✓ Getestet</span></h3>
-          <p>PDF, Word, PowerPoint, HTML zu lesbarem Text konvertieren.</p>
-          <div class="examples"><strong>Beispiel:</strong> PDF hochladen → Inhalt als durchsuchbarer Text.</div>
+          <h3>🎬 YouTube & Video</h3>
+          <p>YouTube-Transkripte herunterladen, Videos zusammenfassen, Frames extrahieren.</p>
+          <div class="examples"><strong>Beispiel:</strong> "Fasse dieses YouTube-Video zusammen"</div>
         </div>
         <div class="skill-item">
-          <h3>🎬 YouTube & Video <span class="tested-badge">✓ Getestet</span></h3>
-          <p>Videos herunterladen, Transkripte extrahieren, Inhalte zusammenfassen.</p>
-          <div class="examples"><strong>Beispiel:</strong> YouTube-Link → "45 Min Video in 3 Absätzen."</div>
+          <h3>📝 Zusammenfassungen</h3>
+          <p>Webseiten, Artikel und Podcasts auf den Punkt gebracht.</p>
+          <div class="examples"><strong>Beispiel:</strong> "Fasse diesen Artikel zusammen: [URL]"</div>
         </div>
         <div class="skill-item">
-          <h3>🎞️ Video Frames <span class="tested-badge">✓ Getestet</span></h3>
-          <p>Einzelbilder oder kurze Clips aus Videos extrahieren.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Frame bei 2:30 aus dem Video" → Bild extrahiert.</div>
+          <h3>🎨 Bildgenerierung</h3>
+          <p>Bilder erstellen mit DALL-E. Logos, Illustrationen, Konzepte.</p>
+          <div class="examples"><strong>Beispiel:</strong> "Erstelle ein Logo für mein Café"</div>
         </div>
-        <div class="skill-item">
-          <h3>🎭 GIF Suche <span class="tested-badge">✓ Getestet</span></h3>
-          <p>GIFs suchen und herunterladen. GIPHY, Tenor und mehr.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Lustiges Katzen-GIF" → 3 Vorschläge.</div>
-        </div>
-        <div class="skill-item">
-          <h3>🖼️ Bilder generieren <span class="tested-badge">✓ Getestet</span></h3>
-          <p>Bilder mit KI erstellen. Logos, Social Media Posts, Konzeptbilder.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Roboter der Kaffee trinkt" → Bild in 10 Sekunden.</div>
-        </div>
+      </div>
+      <div class="plan-cta">
+        <a href="/#signup" class="btn btn-ghost" onclick="if(window.parent.openSignup)window.parent.openSignup('starter')">⚡ Starter wählen — €19/Mo</a>
       </div>
     </div>
 
     <!-- ═══════ PRO SKILLS ═══════ -->
     <div class="plan-section">
       <div class="plan-header">
-        <span class="plan-badge badge-pro">PRO + BUSINESS</span>
-        <h2>Pro Skills</h2>
-        <span class="plan-price">Ab €49/Monat — alles von Starter plus:</span>
+        <h2>⭐ Pro Skills</h2>
+        <span class="plan-badge badge-pro">Ab €49/Mo</span>
+        <span style="font-size:0.85rem;color:var(--text-muted);">Alle Starter-Skills + diese:</span>
       </div>
-
       <div class="skill-grid">
         <div class="skill-item">
-          <h3>📧 E-Mail <span class="tested-badge">✓ Getestet</span></h3>
-          <p>E-Mails lesen, schreiben, durchsuchen. Mehrere Postfächer. IMAP/SMTP.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Ungelesene Mails?" → "3 wichtige, 12 Newsletter ignoriert."</div>
+          <h3>📧 E-Mail</h3>
+          <p>E-Mails lesen, schreiben, beantworten und organisieren. GMX, Gmail, Outlook, iCloud.</p>
+          <div class="examples"><strong>Beispiel:</strong> "Zeig mir meine ungelesenen Mails"</div>
         </div>
         <div class="skill-item">
-          <h3>📅 Google Workspace <span class="tested-badge">✓ Getestet</span></h3>
-          <p>Gmail, Google Calendar, Drive, Sheets, Docs — alles integriert.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Termin morgen 14 Uhr mit Lisa" → Kalender-Eintrag erstellt.</div>
+          <h3>🐙 GitHub</h3>
+          <p>Issues, Pull Requests, CI/CD — direkt aus dem Chat. Code Reviews und Automatisierung.</p>
+          <div class="examples"><strong>Beispiel:</strong> "Zeig mir offene Issues in meinem Repo"</div>
         </div>
         <div class="skill-item">
-          <h3>🐙 GitHub <span class="tested-badge">✓ Getestet</span></h3>
-          <p>Issues, PRs, Code Review, CI/CD Status. Direkt aus dem Chat.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Status PR #42?" → "3 Approvals, CI grün, ready to merge."</div>
+          <h3>📋 Notion</h3>
+          <p>Seiten erstellen, Datenbanken abfragen, Inhalte organisieren.</p>
+          <div class="examples"><strong>Beispiel:</strong> "Erstelle eine Notion-Seite für das Meeting"</div>
         </div>
         <div class="skill-item">
-          <h3>🔧 GitHub Auto-Fix</h3>
-          <p>Issues automatisch analysieren und Pull Requests erstellen.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Fix Issue #17" → Agent analysiert, coded, erstellt PR.</div>
-        </div>
-        <div class="skill-item">
-          <h3>📝 Notion</h3>
-          <p>Notion Seiten, Datenbanken und Blöcke verwalten.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Neue Seite in Notion: Meeting-Notizen" → Erstellt und formatiert.</div>
-        </div>
-        <div class="skill-item">
-          <h3>📋 Trello</h3>
-          <p>Trello Boards, Listen und Karten verwalten.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Neue Karte: Bug fixen, Board: Sprint 3" → Erstellt.</div>
-        </div>
-        <div class="skill-item">
-          <h3>🎙️ Audio transkribieren <span class="tested-badge">✓ Getestet</span></h3>
-          <p>Sprachnachrichten, Meetings, Podcasts — automatisch zu Text.</p>
-          <div class="examples"><strong>Beispiel:</strong> Voice-Message → Transkript + Zusammenfassung.</div>
+          <h3>📎 Google Workspace</h3>
+          <p>Gmail, Google Kalender, Drive, Kontakte, Sheets und Docs.</p>
+          <div class="examples"><strong>Beispiel:</strong> "Was steht morgen in meinem Kalender?"</div>
         </div>
         <div class="skill-item">
           <h3>🗣️ Text-to-Speech</h3>
-          <p>Antworten als Sprachnachricht. Natürliche KI-Stimme.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Lies mir die News vor" → Audio-Nachricht.</div>
+          <p>Texte in natürliche Sprache umwandeln. Hochwertige ElevenLabs-Stimmen.</p>
+          <div class="examples"><strong>Beispiel:</strong> "Lies mir diese Zusammenfassung vor"</div>
         </div>
         <div class="skill-item">
-          <h3>📰 RSS & Blog Monitor <span class="tested-badge">✓ Getestet</span></h3>
-          <p>Blogs und Feeds überwachen. Zusammenfassungen bei neuen Posts.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Überwache den OpenAI Blog" → Benachrichtigung bei neuen Posts.</div>
+          <h3>🎙️ Sprache-zu-Text</h3>
+          <p>Audio-Dateien transkribieren. Meetings, Podcasts, Sprachnachrichten.</p>
+          <div class="examples"><strong>Beispiel:</strong> "Transkribiere diese Aufnahme"</div>
         </div>
         <div class="skill-item">
-          <h3>📄 PDF bearbeiten</h3>
-          <p>PDFs mit natürlicher Sprache bearbeiten, erstellen, zusammenführen.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Füge Seitenzahlen zum PDF hinzu" → Fertig.</div>
+          <h3>📰 Blog-Monitor</h3>
+          <p>RSS-Feeds und Blogs überwachen. Benachrichtigung bei neuen Artikeln.</p>
+          <div class="examples"><strong>Beispiel:</strong> "Überwache den TechCrunch-Blog für mich"</div>
         </div>
         <div class="skill-item">
-          <h3>🎵 Audio Visualisierung</h3>
-          <p>Spektrogramme und Feature-Panels aus Audio generieren.</p>
-          <div class="examples"><strong>Beispiel:</strong> Song hochladen → Spektrogramm als Bild.</div>
+          <h3>📑 PDF erstellen</h3>
+          <p>PDFs generieren, bearbeiten und zusammenfügen.</p>
+          <div class="examples"><strong>Beispiel:</strong> "Erstelle eine PDF-Rechnung"</div>
+        </div>
+        <div class="skill-item">
+          <h3>🔗 MCP Integration</h3>
+          <p>Beliebige MCP-Server anbinden. Erweitere deinen Agent mit externen Tools.</p>
+          <div class="examples"><strong>Beispiel:</strong> "Verbinde meinen MCP-Server"</div>
         </div>
         <div class="skill-item">
           <h3>🔐 1Password</h3>
-          <p>Passwörter und Secrets sicher verwalten und abrufen.</p>
-          <div class="examples"><strong>Beispiel:</strong> "WiFi-Passwort Büro?" → Aus 1Password geholt.</div>
-        </div>
-        <div class="skill-item">
-          <h3>🔌 MCP Server</h3>
-          <p>Externe Tools und APIs anbinden. Endlos erweiterbar.</p>
-          <div class="examples"><strong>Beispiel:</strong> Eigene API anbinden → Agent nutzt sie automatisch.</div>
+          <p>Passwörter sicher abrufen und in Workflows nutzen.</p>
+          <div class="examples"><strong>Beispiel:</strong> "Zeig mir das Passwort für AWS"</div>
         </div>
         <div class="skill-item">
           <h3>💬 WhatsApp History</h3>
           <p>WhatsApp Chat-Verlauf durchsuchen und analysieren.</p>
-          <div class="examples"><strong>Beispiel:</strong> "Was hat Lisa letzte Woche geschrieben?" → Gefunden.</div>
+          <div class="examples"><strong>Beispiel:</strong> "Was hat Tommy letzte Woche geschrieben?"</div>
+        </div>
+        <div class="skill-item">
+          <h3>🔧 GitHub Issues Automation</h3>
+          <p>Issues automatisch bearbeiten, PRs erstellen, Review-Kommentare beantworten.</p>
+          <div class="examples"><strong>Beispiel:</strong> "Fix die offenen Bugs in meinem Repo"</div>
+        </div>
+        <div class="skill-item">
+          <h3>📹 Video-Frames</h3>
+          <p>Einzelbilder oder kurze Clips aus Videos extrahieren.</p>
+          <div class="examples"><strong>Beispiel:</strong> "Extrahiere Frame bei Sekunde 30"</div>
         </div>
       </div>
-
       <div class="plan-cta">
-        <a class="btn btn-primary" href="/#pricing">⭐ Plan wählen</a>
+        <a href="/#signup" class="btn btn-primary" onclick="if(window.parent.openSignup)window.parent.openSignup('pro')">⭐ Pro starten — €49/Mo</a>
       </div>
     </div>
 
-    <div style="text-align:center;padding:3rem 0;">
-      <p style="color:var(--text-muted);margin-bottom:1rem;">Pro und Business haben identische Skills. Business hat mehr Nachrichten pro Tag und höhere Priorität.</p>
-      <a class="btn btn-ghost" href="/">← Zur Startseite</a>
+    <!-- ═══════ BUSINESS ═══════ -->
+    <div class="pricing-note" style="margin-top:3rem;">
+      <h3 style="margin:0 0 0.5rem;">🚀 Business — €99/Mo</h3>
+      <p style="margin:0;color:var(--text-muted);">
+        Alle 20 Skills wie Pro — mit 5x mehr Nachrichtenvolumen.<br>
+        Ideal für Power-User und Teams.
+      </p>
+      <a href="/#signup" class="btn btn-ghost" style="margin-top:1rem;" onclick="if(window.parent.openSignup)window.parent.openSignup('business')">Business wählen</a>
     </div>
+
+    <a href="/" class="back-link">← Zurück zur Startseite</a>
   </div>
 </body>
 </html>
