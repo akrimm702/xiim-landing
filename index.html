@@ -284,35 +284,55 @@
 
       <section class="section" id="demo">
         <div class="container">
-          <h2 class="section-title reveal">Dein Agent. Dein Stil.</h2>
-          <p class="section-subtitle reveal">Konfiguriere deinen Agent und sieh live wie er antwortet.</p>
+          <h2 class="section-title reveal">Sieh deinen Agent in Aktion</h2>
+          <p class="section-subtitle reveal">Echte Szenarien. Echte Ergebnisse. Wähle einen Use Case.</p>
           <div class="demo-split reveal">
-            <div class="config-panel glass">
-              <div class="config-field">
-                <label for="agentName">Name</label>
-                <input type="text" id="agentName" placeholder="z.B. Max, Luna, Jarvis..." maxlength="20" autocomplete="off" />
+            <div class="usecase-panel glass">
+              <div class="usecase-tabs">
+                <button class="usecase-tab active" data-scenario="executive">
+                  <span class="usecase-icon">👔</span>
+                  <div class="usecase-tab-text">
+                    <strong>Executive Assistant</strong>
+                    <span>Kalender, E-Mail, Briefings</span>
+                  </div>
+                </button>
+                <button class="usecase-tab" data-scenario="research">
+                  <span class="usecase-icon">🔍</span>
+                  <div class="usecase-tab-text">
+                    <strong>Research &amp; Analyse</strong>
+                    <span>Marktdaten, Reports, Insights</span>
+                  </div>
+                </button>
+                <button class="usecase-tab" data-scenario="creative">
+                  <span class="usecase-icon">🎨</span>
+                  <div class="usecase-tab-text">
+                    <strong>Content &amp; Kreativ</strong>
+                    <span>Texte, Bilder, Social Media</span>
+                  </div>
+                </button>
+                <button class="usecase-tab" data-scenario="developer">
+                  <span class="usecase-icon">💻</span>
+                  <div class="usecase-tab-text">
+                    <strong>Developer Copilot</strong>
+                    <span>Code, CI/CD, Dokumentation</span>
+                  </div>
+                </button>
               </div>
-              <div class="config-field">
-                <label>Persönlichkeit</label>
-                <div class="personality-chips">
-                  <button class="chip active" data-personality="professional">🎯 Professionell</button>
-                  <button class="chip" data-personality="friendly">😊 Freundlich</button>
-                  <button class="chip" data-personality="witty">😏 Schlagfertig</button>
-                  <button class="chip" data-personality="chill">😎 Entspannt</button>
+              <div class="usecase-stats" id="usecaseStats">
+                <div class="stat-item">
+                  <span class="stat-value" id="statTasks">12</span>
+                  <span class="stat-label">Tasks/Tag</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value" id="statTime">3.5h</span>
+                  <span class="stat-label">Zeitersparnis</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value" id="statSkills">8</span>
+                  <span class="stat-label">Skills aktiv</span>
                 </div>
               </div>
-              <div class="config-field">
-                <label>Skills</label>
-                <div class="feature-toggles">
-                  <label class="toggle-label"><input type="checkbox" checked /> 📧 E-Mail</label>
-                  <label class="toggle-label"><input type="checkbox" checked /> 📅 Kalender</label>
-                  <label class="toggle-label"><input type="checkbox" checked /> 🔍 Recherche</label>
-                  <label class="toggle-label"><input type="checkbox" /> 📊 Excel</label>
-                  <label class="toggle-label"><input type="checkbox" /> 🎨 Bilder</label>
-                  <label class="toggle-label"><input type="checkbox" /> 🐙 GitHub</label>
-                </div>
-              </div>
-              <a href="#signup" class="btn btn-primary" style="width:100%;margin-top:1rem;" onclick="openSignup('pro')">Agent erstellen →</a>
+              <a href="#pricing" class="btn btn-primary usecase-cta">Jetzt starten →</a>
             </div>
             <div class="phone-frame">
               <div class="phone-notch"></div>
