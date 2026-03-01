@@ -626,16 +626,19 @@ async function submitSignup(e) {
     const data = await resp.json();
     if (data.checkout_url) {
       window.location.href = data.checkout_url;
-    } else {
-      // API ok but no checkout URL — redirect to Telegram with plan
-      window.location.href = 'https://t.me/xiim_agent_bot?start=' + plan;
+    } else if (data.error) {
+      alert('Fehler: ' + data.error);
+      document.getElementById('signup-form').style.display = 'block';
+      document.getElementById('signup-loading').style.display = 'none';
     }
   } catch(err) {
-    // API not reachable — save lead locally and redirect to Telegram
+    // API not reachable — save lead and show error
     try {
       localStorage.setItem('xiim_lead', JSON.stringify({name, email, plan, ts: Date.now()}));
     } catch(e) {}
-    window.location.href = 'https://t.me/xiim_agent_bot?start=' + plan;
+    document.getElementById('signup-form').style.display = 'block';
+    document.getElementById('signup-loading').style.display = 'none';
+    alert('Server nicht erreichbar. Starte direkt via Telegram oder WhatsApp!');
   }
 }
 </script>
