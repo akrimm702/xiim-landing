@@ -390,18 +390,66 @@ body {
   min-height: 130px;
 }
 
-.demo-wrap {
+/* ═══ Phone Mockup ═══ */
+.phone-frame {
   position: relative;
-  height: 340px;
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 32px;
+  border: 2px solid rgba(255,255,255,0.08);
+  background: linear-gradient(180deg, #111318 0%, #0c0e14 100%);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.04),
+    0 20px 60px rgba(0,0,0,0.5),
+    0 0 40px rgba(99,102,241,0.08);
   overflow: hidden;
+}
+.phone-notch {
+  width: 120px; height: 28px;
+  background: #000;
+  border-radius: 0 0 16px 16px;
+  margin: 0 auto;
+}
+.phone-header {
+  display: flex; align-items: center; gap: 0.7rem;
+  padding: 0.6rem 1.2rem 0.7rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+}
+.phone-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+}
+.phone-header-info { display: flex; flex-direction: column; }
+.phone-name { font-size: 0.9rem; font-weight: 600; color: #fff; }
+.phone-status { font-size: 0.72rem; color: #22c55e; letter-spacing: 0.02em; }
+.phone-body {
+  padding: 1rem 0.8rem;
+  height: 320px;
+  overflow: hidden;
+  position: relative;
+}
+.phone-input-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.65rem 1rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+}
+.phone-input-placeholder {
+  font-size: 0.85rem; color: rgba(255,255,255,0.25);
+}
+.phone-send {
+  color: rgba(99,102,241,0.5); font-size: 1.1rem;
 }
 
 .demo-chat {
   display: grid;
-  gap: 0.7rem;
-  max-height: 300px;
+  gap: 0.55rem;
+  max-height: 280px;
   overflow-y: auto;
-  padding-bottom: 1rem;
   scrollbar-width: none;
 }
 .demo-chat::-webkit-scrollbar { display: none; }
@@ -421,6 +469,16 @@ body {
   background: rgba(11, 130, 153, 0.28);
   border: 1px solid rgba(56, 214, 240, 0.45);
 }
+
+.msg-text { display: block; }
+.msg-time {
+  display: block;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.25);
+  margin-top: 0.2rem;
+  text-align: right;
+}
+.msg.user .msg-time { color: rgba(56,214,240,0.35); }
 
 .msg.agent {
   background: rgba(75, 67, 213, 0.25);

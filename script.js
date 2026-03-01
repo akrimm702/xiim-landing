@@ -176,9 +176,17 @@ function initDemoChat() {
         typing.classList.remove("visible");
         const line = document.createElement("div");
         line.className = `msg ${role}`;
-        line.textContent = text;
+        const textEl = document.createElement("span");
+        textEl.className = "msg-text";
+        textEl.textContent = text;
+        line.appendChild(textEl);
+        const time = document.createElement("span");
+        time.className = "msg-time";
+        const now = new Date();
+        time.textContent = now.getHours().toString().padStart(2,"0") + ":" + now.getMinutes().toString().padStart(2,"0");
+        line.appendChild(time);
         chat.appendChild(line);
-        chat.scrollTop = chat.scrollHeight;
+        chat.scrollTo({ top: chat.scrollHeight, behavior: "smooth" });
         index += 1;
 
         setTimeout(pushMessage, role === "agent" ? 1350 : 900);
