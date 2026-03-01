@@ -165,33 +165,22 @@ function initDemoChat() {
       stats: { tasks: "15", time: "4h", skills: "10" },
       script: [
         { role: "user", text: "Schreib mir 3 LinkedIn-Posts über AI im Mittelstand. Professionell aber nicht langweilig." },
-        { role: "agent", text: "Hier die drei Posts:
-
-1. 🏭 "94% der deutschen Mittelständler sagen: KI ist relevant. 12% nutzen sie. Die Lücke? Kein Tech-Problem — ein Mut-Problem."
-
-2. 📊 "Mein Agent hat heute 47 Mails..."
-
-Soll ich sie einzeln ausarbeiten mit Hashtags?" },
+        { role: "agent", text: "Drei Posts vorbereitet: 1) 94% sagen KI ist relevant, 12% nutzen sie — die Lücke ist kein Tech-Problem. 2) Mein Agent sortiert 47 Mails bevor ich aufstehe. 3) Der ROI von KI im Mittelstand. Soll ich sie einzeln ausarbeiten?" },
         { role: "user", text: "Post 1 gefällt mir. Mach den fertig mit CTA und generiere ein passendes Bild dazu." },
-        { role: "agent", text: "Post ist fertig mit CTA: "Was ist euer erster KI-Use-Case? Kommentiert 👇"
-
-🎨 Bild generiert: Clean Infografik, dunkelblau, mit der 94% vs 12% Statistik. Minimalistisch, LinkedIn-optimiert. Soll ich beides direkt posten?" },
+        { role: "agent", text: "Post fertig mit CTA: Was ist euer erster KI-Use-Case? Kommentiert! Bild generiert: Clean Infografik, dunkelblau, 94% vs 12% Statistik. LinkedIn-optimiert, 1200x627px. Soll ich beides direkt posten?" },
         { role: "user", text: "Zeig mir erst das Bild." },
-        { role: "agent", text: "📎 linkedin-ai-mittelstand-v1.png — 1200x627px, LinkedIn-Format. Zwei Varianten: mit und ohne dein Firmenlogo. Passt das oder soll ich was ändern?" }
+        { role: "agent", text: "\ud83d\udcce linkedin-ai-mittelstand-v1.png \u2014 1200x627px, LinkedIn-Format. Zwei Varianten: mit und ohne dein Firmenlogo. Passt das oder soll ich was \u00e4ndern?" }
       ]
     },
     developer: {
       stats: { tasks: "20", time: "6h", skills: "12" },
       script: [
         { role: "user", text: "Check den CI-Status von xiim-platform. Irgendwas rot?" },
-        { role: "agent", text: "CI ist grün ✅ Letzter Run: main@a3f291c vor 23 Min. Alle 4 Test-Suites passed (Provisioning, Billing, Lifecycle, Token-Tracker). Coverage bei 87%." },
-        { role: "user", text: "Schreib mir eine Migration für ein neues usage_logs Table. Columns: agent_id, tokens_in, tokens_out, timestamp, endpoint." },
-        { role: "agent", text: "Migration 002_usage_logs.sql erstellt:
-
-CREATE TABLE usage_logs mit allen Columns, Index auf agent_id+timestamp, Foreign Key auf agents(id). Soll ich den PR direkt aufmachen?" },
+        { role: "agent", text: "CI ist grün ✅ Letzter Run: main@a3f291c vor 23 Min. Alle 4 Test-Suites passed. Coverage bei 87%." },
+        { role: "user", text: "Schreib mir eine Migration für ein neues usage_logs Table mit agent_id, tokens_in, tokens_out, timestamp, endpoint." },
+        { role: "agent", text: "Migration 002_usage_logs.sql erstellt: CREATE TABLE mit allen Columns, Index auf agent_id+timestamp, Foreign Key auf agents(id). Soll ich den PR direkt aufmachen?" },
         { role: "user", text: "Ja. Und schreib gleich die Tests dazu." },
-        { role: "agent", text: "PR #47 ist offen: "feat: usage_logs table + tracking"
-— Migration + SQLAlchemy Model + 6 Tests (insert, query by agent, date range filter, aggregation, cleanup, FK constraint). Review-ready." }
+        { role: "agent", text: "PR #47 ist offen: feat usage_logs table + tracking. Migration + SQLAlchemy Model + 6 Tests (insert, query, date range, aggregation, cleanup, FK constraint). Review-ready." }
       ]
     }
   };
