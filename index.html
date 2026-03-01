@@ -576,14 +576,15 @@ async function submitSignup(e) {
     if (data.checkout_url) {
       window.location.href = data.checkout_url;
     } else {
-      alert('Fehler beim Erstellen des Checkouts. Versuch es via Telegram!');
-      document.getElementById('signup-form').style.display = 'block';
-      document.getElementById('signup-loading').style.display = 'none';
+      // API ok but no checkout URL — redirect to Telegram with plan
+      window.location.href = 'https://t.me/xiim_agent_bot?start=' + plan;
     }
   } catch(err) {
-    alert('Verbindungsfehler. Versuch es via Telegram!');
-    document.getElementById('signup-form').style.display = 'block';
-    document.getElementById('signup-loading').style.display = 'none';
+    // API not reachable — save lead locally and redirect to Telegram
+    try {
+      localStorage.setItem('xiim_lead', JSON.stringify({name, email, plan, ts: Date.now()}));
+    } catch(e) {}
+    window.location.href = 'https://t.me/xiim_agent_bot?start=' + plan;
   }
 }
 </script>
