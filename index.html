@@ -331,6 +331,12 @@
           <div class="demo-wrap glass reveal">
             <div class="demo-chat" id="demoChat"></div>
             <div class="typing" id="typingIndicator" aria-hidden="true"><span></span><span></span><span></span></div>
+            <form id="demoForm" class="demo-form" onsubmit="return false;">
+              <input type="text" id="demoInput" placeholder="Schreib deinem Agenten..." autocomplete="off" />
+              <button type="submit" id="demoSubmit" class="btn btn-primary" aria-label="Senden">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </form>
           </div>
         </div>
       </section>
