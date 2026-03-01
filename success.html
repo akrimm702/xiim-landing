@@ -3,38 +3,147 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XIIM — Willkommen!</title>
+  <title>XIIM — Agent wird eingerichtet</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .success-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;}
-    .success-card{max-width:500px;text-align:center;padding:3rem 2rem;border-radius:16px;}
+    .success-page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;}
+    .success-card{max-width:480px;width:100%;padding:2.5rem;border-radius:20px;text-align:center;}
     .success-icon{font-size:4rem;margin-bottom:1rem;}
     .success-card h1{font-size:1.8rem;margin-bottom:0.5rem;}
-    .success-card p{color:var(--text-muted);margin-bottom:1.5rem;line-height:1.6;}
-    .next-steps{text-align:left;margin:1.5rem 0;}
-    .next-steps li{margin-bottom:0.8rem;padding-left:0.5rem;}
+    .success-card .lead{color:var(--text-muted);margin-bottom:2rem;line-height:1.6;}
+    .channel-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem;}
+    .channel-btn{display:inline-flex;align-items:center;gap:0.6rem;padding:0.9rem 1.8rem;border-radius:12px;font-weight:700;font-size:1.05rem;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;}
+    .channel-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3);}
+    .channel-btn.telegram{background:linear-gradient(135deg,#0088cc,#229ED9);color:#fff;}
+    .channel-btn.whatsapp{background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;}
+    .steps{text-align:left;margin:1.5rem 0;padding:0;list-style:none;}
+    .steps li{padding:0.5rem 0;color:var(--text-muted);display:flex;gap:0.5rem;align-items:flex-start;}
+    .steps li .num{background:var(--bg-deep);border:1px solid var(--stroke);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;}
+    .note{font-size:0.85rem;color:var(--text-muted);margin-top:1rem;}
+    .loading-state{display:none;}
+    .paid-state{display:none;}
+    #tokenDisplay{font-family:monospace;background:var(--bg-deep);padding:0.3rem 0.8rem;border-radius:8px;font-size:0.9rem;border:1px solid var(--stroke);}
   </style>
 </head>
 <body>
-  <div class="success-wrap">
-    <div class="success-card glass">
-      <div class="success-icon">🎉</div>
-      <h1>Zahlung erfolgreich!</h1>
-      <p>Dein XIIM Agent wird gerade eingerichtet. Öffne Telegram um das Setup abzuschließen.</p>
-
-      <ol class="next-steps">
-        <li>📱 Öffne <a href="https://t.me/xiim_agent_bot" target="_blank" style="color:var(--cyan);font-weight:600;">@xiim_agent_bot</a> auf Telegram</li>
-        <li>🤖 Gib deinem Agent einen Namen</li>
-        <li>🎯 Wähle deine Use Cases</li>
-        <li>✨ Optional: Lade einen Chat-Export hoch für Persönlichkeits-Kloning</li>
-      </ol>
-
-      <a class="btn btn-primary" href="https://t.me/xiim_agent_bot" target="_blank" style="width:100%;display:block;margin-top:1rem;">
-        ✈️ Agent einrichten auf Telegram
-      </a>
-
-      <a href="/" style="display:block;margin-top:1.5rem;color:var(--text-muted);font-size:0.9rem;">← Zurück zur Startseite</a>
+  <div class="success-page">
+    <div class="success-card glass" id="successCard">
+      
+      <!-- Loading state -->
+      <div id="loadingState" class="loading-state" style="display:block;">
+        <div class="success-icon">⏳</div>
+        <h1>Zahlung wird geprüft...</h1>
+        <p class="lead">Einen Moment bitte.</p>
+      </div>
+      
+      <!-- Paid state -->
+      <div id="paidState" class="paid-state">
+        <div class="success-icon">🎉</div>
+        <h1>Zahlung bestätigt!</h1>
+        <p class="lead">
+          Willkommen, <strong id="userName"></strong>! Dein <strong id="planName"></strong> Agent wartet auf dich.
+        </p>
+        
+        <p style="font-weight:600;margin-bottom:0.8rem;">Jetzt Agent einrichten:</p>
+        <div class="channel-buttons">
+          <a id="tgLink" class="channel-btn telegram" href="#" target="_blank">
+            ✈️ Telegram öffnen
+          </a>
+          <a id="waLink" class="channel-btn whatsapp" href="#" target="_blank">
+            💬 WhatsApp öffnen
+          </a>
+        </div>
+        
+        <ul class="steps">
+          <li><span class="num">1</span> Öffne Telegram oder WhatsApp</li>
+          <li><span class="num">2</span> Gib deinem Agent einen Namen</li>
+          <li><span class="num">3</span> Beschreib wofür du ihn brauchst</li>
+          <li><span class="num">4</span> Fertig — sofort loschatten! 🚀</li>
+        </ul>
+        
+        <p class="note">
+          Dein Aktivierungscode: <span id="tokenDisplay"></span><br>
+          Diesen Code kannst du auch manuell im Bot eingeben.
+        </p>
+      </div>
+      
+      <!-- Error state -->
+      <div id="errorState" style="display:none;">
+        <div class="success-icon">⚠️</div>
+        <h1>Etwas stimmt nicht</h1>
+        <p class="lead">Die Zahlung konnte nicht verifiziert werden. Kontaktiere uns: contact@xii-m.com</p>
+        <a href="/" class="btn btn-ghost">Zurück zur Startseite</a>
+      </div>
     </div>
   </div>
+  
+  <script>
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token');
+    
+    if (!token) {
+      document.getElementById('loadingState').style.display = 'none';
+      document.getElementById('errorState').style.display = 'block';
+      return;
+    }
+    
+    // Poll for payment confirmation
+    let attempts = 0;
+    const maxAttempts = 20;
+    
+    async function checkPayment() {
+      try {
+        const resp = await fetch('https://api.xii-m.com/signup/verify/' + token);
+        const data = await resp.json();
+        
+        if (data.valid && data.paid) {
+          // Payment confirmed!
+          document.getElementById('loadingState').style.display = 'none';
+          document.getElementById('paidState').style.display = 'block';
+          document.getElementById('userName').textContent = data.name || 'User';
+          
+          const planNames = {starter: '⚡ Starter', pro: '⭐ Pro', business: '🚀 Business'};
+          document.getElementById('planName').textContent = planNames[data.plan] || data.plan;
+          document.getElementById('tokenDisplay').textContent = token.substring(0, 12);
+          
+          // Deep-links with token
+          document.getElementById('tgLink').href = 'https://t.me/xiim_agent_bot?start=paid_' + token;
+          document.getElementById('waLink').href = 'https://wa.me/18316075556?text=paid_' + token;
+          return;
+        }
+        
+        if (data.valid && !data.paid && attempts < maxAttempts) {
+          attempts++;
+          setTimeout(checkPayment, 3000);
+          return;
+        }
+        
+        // Show paid state anyway after timeout (Stripe webhook might be slow)
+        if (data.valid) {
+          document.getElementById('loadingState').style.display = 'none';
+          document.getElementById('paidState').style.display = 'block';
+          document.getElementById('userName').textContent = data.name || 'User';
+          const planNames = {starter: '⚡ Starter', pro: '⭐ Pro', business: '🚀 Business'};
+          document.getElementById('planName').textContent = planNames[data.plan] || data.plan;
+          document.getElementById('tokenDisplay').textContent = token.substring(0, 12);
+          document.getElementById('tgLink').href = 'https://t.me/xiim_agent_bot?start=paid_' + token;
+          document.getElementById('waLink').href = 'https://wa.me/18316075556?text=paid_' + token;
+        } else {
+          document.getElementById('loadingState').style.display = 'none';
+          document.getElementById('errorState').style.display = 'block';
+        }
+      } catch(e) {
+        if (attempts < maxAttempts) {
+          attempts++;
+          setTimeout(checkPayment, 3000);
+        }
+      }
+    }
+    
+    checkPayment();
+  })();
+  </script>
 </body>
 </html>
