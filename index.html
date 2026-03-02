@@ -365,13 +365,13 @@
             <article class="price-card glass reveal" data-plan="starter" data-monthly="19">
               <h3>Starter</h3>
               <p class="price"><span class="currency">€</span><span class="value">19</span><span class="period">/Monat</span></p>
-              <p class="billing-note">~200 Nachrichten/Tag</p>
+              <p class="billing-note">~40 Nachrichten/Tag • Haiku KI</p>
               <ul>
                 <li>1 persönlicher Agent</li>
                 <li>Telegram & WhatsApp</li>
                 <li>9 Skills (Wetter, Excel, CSV, Bilder, Video, Docs, ...)</li>
                 <li>Persönliches Gedächtnis</li>
-                <li>Web-Recherche &amp; Gedächtnis</li>
+                <li>1.5M Tokens/Monat + tägliches Limit</li>
               </ul>
               <a class="btn btn-ghost" href="#signup" onclick="openSignup('starter')">Starter wählen</a>
             </article>
@@ -380,7 +380,7 @@
               <p class="badge">Beliebteste</p>
               <h3>Pro</h3>
               <p class="price"><span class="currency">€</span><span class="value">49</span><span class="period">/Monat</span></p>
-              <p class="billing-note">~1.000 Nachrichten/Tag</p>
+              <p class="billing-note">~140 Nachrichten/Tag • Haiku + Sonnet</p>
               <ul>
                 <li><strong>Alle Skills inklusive</strong></li>
                 <li>E-Mail, Google Workspace, Notion, 1Password</li>
@@ -394,10 +394,10 @@
             <article class="price-card glass reveal" data-plan="business" data-monthly="99">
               <h3>Business</h3>
               <p class="price"><span class="currency">€</span><span class="value">99</span><span class="period">/Monat</span></p>
-              <p class="billing-note">~5.000 Nachrichten/Tag</p>
+              <p class="billing-note">~330 Nachrichten/Tag • Haiku + Sonnet</p>
               <ul>
                 <li><strong>Alle Skills inklusive</strong></li>
-                <li>5x mehr Nachrichten als Pro</li>
+                <li>2.5x mehr Tokens als Pro</li>
                 <li>Priority Support</li>
                 <li>Erweiterte Kontexte</li>
                 <li>Perfekt für Power-User & Teams</li>
@@ -470,7 +470,7 @@
             </article>
             <article class="faq-item glass reveal">
               <button class="faq-question" aria-expanded="false">Welche KI-Modelle nutzt XIIM?</button>
-              <div class="faq-answer"><p>Starter und Pro nutzen GPT-4.1 von OpenAI. Business nutzt Claude Sonnet 4.6 von Anthropic — aktuell eines der leistungsfähigsten Modelle am Markt.</p></div>
+              <div class="faq-answer"><p>Alle Pläne nutzen Claude Haiku 4.5 von Anthropic für schnelle Antworten. Pro und Business haben zusätzlich Zugang zu Claude Sonnet 4.6 für komplexe Analysen, Code und lange Texte.</p></div>
             </article>
             <article class="faq-item glass reveal">
               <button class="faq-question" aria-expanded="false">Kann ich mehrere Agents haben?</button>
@@ -584,9 +584,9 @@
 
 <script>
 const PLAN_INFO = {
-  starter: {name:'Starter', price:'€19/Monat', desc:'~200 Nachrichten/Tag, 9 Skills'},
-  pro: {name:'Pro', price:'€49/Monat', desc:'21 Skills, ~1.000 Nachrichten/Tag'},
-  business: {name:'Business', price:'€99/Monat', desc:'21 Skills, Claude Sonnet, ~5.000 Nachrichten/Tag'},
+  starter: {name:'Starter', price:'€19/Monat', desc:'~40 Nachrichten/Tag, Haiku KI, 9 Skills'},
+  pro: {name:'Pro', price:'€49/Monat', desc:'~140 Nachrichten/Tag, Haiku+Sonnet, 21 Skills'},
+  business: {name:'Business', price:'€99/Monat', desc:'~330 Nachrichten/Tag, Haiku+Sonnet, 21 Skills'},
 };
 
 function openSignup(plan) {
